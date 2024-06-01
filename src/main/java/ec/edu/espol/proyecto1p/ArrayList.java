@@ -5,6 +5,7 @@
 package ec.edu.espol.proyecto1p;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -77,7 +78,19 @@ public class ArrayList<E> implements List<E> {
     public boolean isEmpty() {
        return effectiveSize==0;
     }
+    
+        public ArrayList<E> FindInt( ArrayList<E> elements,Comparator<E> cmp, E another ){
+        ArrayList<E> results=new ArrayList();
+        for(E e:this){
+            if(cmp.compare(e, another)==0)
+                results.add(e);
+                
+        }
+        return results;
+    }
 
+    
+    
     @Override
     public boolean contains(Object o) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -85,7 +98,24 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public Iterator<E> iterator() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                Iterator<E> it=new Iterator<E>(){
+            int cursor=0;
+
+            @Override
+            public boolean hasNext() {
+                return cursor<effectiveSize;
+            }
+
+            @Override
+            public E next() {
+                E e= elements[cursor];
+                cursor++;
+                return e;
+            }
+            
+            
+        };
+        return it;
     }
 
     @Override

@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * JavaFX App
@@ -17,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Usuario").load(), 680, 480);
+        scene = new Scene(loadFXML("Menu").load(), 680, 480);
         stage.setScene(scene);
         stage.show();
     }   
@@ -30,9 +31,45 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader;
     }
+    
+    
+           public static ArrayList<String>  cargarImagenes(String ruta) {
+        ArrayList<String> nombresImagenes = ImageFunction.cargarImagenes(ruta);
+        // Haz lo que necesites con la lista de nombres de imágenes
+        for (String nombre : nombresImagenes) {
+            System.out.println(nombre);
+        }
+        return  nombresImagenes;
+    }
 
     public static void main(String[] args) {
         launch();
+        
+        ArrayList<MedioDeTransporte> l=Lector.leerArchivo("Datos.csv");
+       /*for(MedioDeTransporte g: l){
+           System.out.print(g.toString());
+           System.out.println("\n");
+           
+       }*/
+       
+       ArrayList<String> nameImages=ImageFunction.cargarImagenes("img");
+        for(String g: nameImages){
+           System.out.print(g);
+       }
+        
+        
+        
+        String rutaImagenes = "img"; // Cambia esto a la ruta correcta de tu carpeta de imágenes
+        ArrayList<String> r=cargarImagenes(rutaImagenes);
+        
+        ArrayList<String> o=ImageFunction.filtrar(r, "10003");
+        for(String fe:o){
+            System.out.println("\n");
+            System.out.println(fe);
+        }
+            
+        
+        
     }
 
 }
