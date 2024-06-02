@@ -13,10 +13,10 @@ import java.io.Serializable;
 public class Usuario {
     private String name;
     private String password;
-    private ArrayList<MedioDeTransporte> autos;
+    private ArrayList<Vehiculo> autos;
     
 
-    public Usuario(String name, String password, ArrayList<MedioDeTransporte> autos) {
+    public Usuario(String name, String password, ArrayList<Vehiculo> autos) {
         this.name = name;
         this.password = password;
         this.autos = autos;
@@ -30,7 +30,7 @@ public class Usuario {
         return password;
     }
 
-    public ArrayList<MedioDeTransporte> getAutos() {
+    public ArrayList<Vehiculo> getAutos() {
         return autos;
     }
 
@@ -42,7 +42,7 @@ public class Usuario {
         this.password = password;
     }
 
-    public void setAutos(ArrayList<MedioDeTransporte> autos) {
+    public void setAutos(ArrayList<Vehiculo> autos) {
         this.autos = autos;
     }
     
