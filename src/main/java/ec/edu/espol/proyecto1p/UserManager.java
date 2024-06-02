@@ -4,44 +4,76 @@
  */
 package ec.edu.espol.proyecto1p;
 
+import java.io.BufferedWriter;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 /**
  *
  * @author leoza
  */
-public class UserManager {
-    //Se uso el metodo de patron singleton para evitar llamar la instancia  en cada momento
+public class UserManager  {
     
-    private static UserManager instance;
-    private ArrayList<Usuario> users;
+    
 
-    // Constructor privado para evitar instanciación directa
-    private UserManager() {
-        users = new ArrayList<>();
-    }
+        private static Usuario usuario;
 
-    // Método para obtener la instancia única
-    public static synchronized UserManager getInstance() {
-        if (instance == null) {
-            instance = new UserManager();
+        // Método para establecer el usuario
+        public static void setUsuario(Usuario usuarioNuevo) {
+            usuario = usuarioNuevo;
         }
-        return instance;
-    }
 
-    // Métodos para manipular la lista de usuarios
-    public ArrayList<Usuario> getUsers() {
-        return users;
-    }
+        // Método para obtener el usuario actual
+        public static Usuario getUsuario() {
+            return usuario;
+        }
+        public static void escribirUsuarioCSV(Usuario usuario, String filePath) {
+            ArrayList<Usuario> usuarios = leerUsuariosCSV(filePath);
+            boolean usuarioExiste = false;
 
-    public void addUser(Usuario user) {
-        users.add(user);
-    }
-    
-    public boolean userExists(String name) {
-    for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getName().equals(name)) {
-                return true;
+            for (Usuario u : usuarios) {
+                if (u.getName().equals(usuario.getName())) {
+                    // El usuario ya existe, actualizar su información
+                    u.setPassword(usuario.getPassword());
+                    u.setAutos(usuario.getAutos());
+                    u.setFavoritos(usuario.getFavoritos());
+                    usuarioExiste = true;
+                    break;
+                }
+            }
+
+            if (!usuarioExiste) {
+                // El usuario no existe, agregarlo a la lista
+                usuarios.add(usuario);
+            }
+
+            // Ahora escribir la lista actualizada de usuarios en el archivo CSV
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                for (Usuario u : usuarios) {
+                    writer.write(u.getName() + "," + u.getPassword() + ",");
+                    //+ autosToString(u.getAutos()) + "," + autosToString(u.getFavoritos())
+                    writer.newLine();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-        return false;
-    }
+
+        private static ArrayList<Usuario> leerUsuariosCSV(String filePath) {
+            ArrayList<Usuario> usuarios = new ArrayList<>();
+            
+            return usuarios;
+        }
+
+        private static String autosToString(ArrayList<MedioDeTransporte> autos) {
+            // Convertir la lista de autos a una cadena de texto
+            // Puedes implementar esta función según tu formato de escritura en CSV
+            return ""; // Implementación ficticia, debes cambiarla según tus necesidades
+        }
+
 }

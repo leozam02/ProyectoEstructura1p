@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author leoza
  */
-public class MedioDeTransporte {
+public class MedioDeTransporte  {
        private String fecha;
     private String Marca;
     private String Modelo;
@@ -23,6 +23,8 @@ public class MedioDeTransporte {
     private String nombre;
     private String id;
     private ArrayList<String> fotos;
+    private static final long serialVersionUID=1L;
+
 
     public MedioDeTransporte(String fecha, String Marca, String Modelo, int kilometraje, int motor, String transmision, int precio, String provincia, String descripcion, String nombre, String id) {
         this.fecha = fecha;
@@ -141,10 +143,11 @@ public class MedioDeTransporte {
     
     
     
-    @Override
+        @Override
     public String toString(){
-        return fecha+" "+Marca+" "+Modelo+" "+kilometraje+" "+motor+" "+transmision+" "+precio+" "+provincia+" "+descripcion+" "+nombre+" "+id;
+        return fecha + ";" + Marca + ";" + Modelo + ";" + kilometraje + ";" + motor + ";" + transmision + ";" + precio + ";" + provincia + ";" + descripcion + ";" + nombre + ";" + id;
     }
+
     
      
 }

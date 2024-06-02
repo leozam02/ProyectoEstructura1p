@@ -8,6 +8,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,8 +49,6 @@ public class MenuController implements Initializable {
     @FXML
     private TextField TextoPrecioInicial;
     @FXML
-    private Button botonRegreso;
-    @FXML
     private TextField TextoPrecioFInal;
     @FXML
     private TextField TextoKmDesde;
@@ -56,7 +57,7 @@ public class MenuController implements Initializable {
     @FXML
     private Button BotonBuscar;
     @FXML
-    private ComboBox<?> comboOrden;
+    private ComboBox<String> comboOrden;
     @FXML
     private Button botonCreacion;
     
@@ -68,7 +69,8 @@ public class MenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+             // Agregar opciones al ComboBox de ordenamiento
+        comboOrden.getItems().addAll("Ordenar por nombre de marca", "Ordenar por precio de mayor a menor");
      vpane.setAlignment(Pos.CENTER);
      Scroll.setFitToWidth(true);
      Lista=Lector.leerArchivo("Datos.csv");
@@ -257,9 +259,6 @@ public class MenuController implements Initializable {
     private void PrecioDesde(ActionEvent event) {
     }
 
-    @FXML
-    private void regresar(ActionEvent event) {
-    }
 
     @FXML
     private void PrecioHasta(ActionEvent event) {
@@ -291,23 +290,55 @@ public class MenuController implements Initializable {
 
     @FXML
     private void ordenamiento(ActionEvent event) {
+    String seleccion = comboOrden.getValue();
+    //ArrayList<MedioDeTransporte> listaOrdenada = Lista;
+
+    if ("Ordenar por nombre de marca".equals(seleccion)) {
+        System.out.println("Valor seleccionado: " + seleccion);
+
+        /*Collections.sort(listaOrdenada, new Comparator<MedioDeTransporte>() {
+            @Override
+            public int compare(MedioDeTransporte m1, MedioDeTransporte m2) {
+                return m1.getMarca().compareTo(m2.getMarca());
+            }
+        });*/
+    } else if ("Ordenar por precio de mayor a menor".equals(seleccion)) {
+        System.out.println("Valor seleccionado: " + seleccion);
+
+        /*Collections.sort(listaOrdenada, new Comparator<MedioDeTransporte>() {
+            @Override
+            public int compare(MedioDeTransporte m1, MedioDeTransporte m2) {
+                return Double.compare(m2.getPrecio(), m1.getPrecio());
+            }
+        });*/
+    }
+
+    //CargaInicial(listaOrdenada);
     }
 
     @FXML
     private void crear(ActionEvent event) {
+             try {
+            FXMLLoader fxml = App.loadFXML("Creacion");
+            Scene sc = new Scene(fxml.load(),600,600);
+            Stage st = new Stage();
+            st.setScene(sc);
+            st.show();
+            
+            Button b = (Button)event.getSource();
+            Stage s = (Stage) b.getScene().getWindow();
+            s.close();
+        } catch (IOException ex) {
+            Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
+            a.show();
+        }
+        
+        
+        
     }
     
     
-      /*Comparator <String> cmp=new Comparator<String>(){
-            @Override
-            public int compare(String o1, String o2) {
-                if (o1.equals(o2))
-                    return 0;
-                else
-                    return 1;
-            }
-           
-       };*/
+      
     
     
 }

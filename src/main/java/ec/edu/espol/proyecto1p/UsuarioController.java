@@ -40,13 +40,16 @@ public class UsuarioController implements Initializable {
     private VBox vbox2;
     @FXML
     private Button boton;
-
+    ArrayList<Usuario> Lista;
+    
+    
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
 
     @FXML
@@ -56,23 +59,37 @@ public class UsuarioController implements Initializable {
             showAlert("ERROR DE BUSQUEDA", "Porfavor llene los dos campos de texto");
         }
         else{
-            
-                   String username = nameUsuario.getText();
-        String password = contrasenaUsuario.getText();
-
-        if (UserManager.getInstance().userExists(username)) {
-            showAlert("ERROR DE REGISTRO", "El usuario ya existe");
-        } else {
-            Usuario u = new Usuario(username, password, new ArrayList<>());
-            UserManager.getInstance().addUser(u);
+            String username = nameUsuario.getText();
+            String password = contrasenaUsuario.getText();
+            Usuario u = new Usuario(username, password, new ArrayList<>(),new ArrayList<>());
+            UserManager.escribirUsuarioCSV(u, "Usuarios.csv");
             abrirVentana("AUTOS");
-            Button b = (Button) event.getSource();
-            Stage curr = (Stage) b.getScene().getWindow();
-            curr.close();
-        }
+                Button b = (Button) event.getSource();
+                Stage curr = (Stage) b.getScene().getWindow();
+                curr.close();
+            /*String username = nameUsuario.getText();
+            String password = contrasenaUsuario.getText();
+                Usuario u = new Usuario(username, password, new ArrayList<>(),new ArrayList<>());
+                Lista.add(u);
+                UserManager.guardarUsuario(Lista);
+                abrirVentana("AUTOS");
+                Button b = (Button) event.getSource();
+                Stage curr = (Stage) b.getScene().getWindow();
+                curr.close();
+
+            if (UserManager.userExists(username,password)) {
+                showAlert("ERROR DE REGISTRO", "El usuario ya existe");
+            } else {
+                Usuario u = new Usuario(username, password, new ArrayList<>(),new ArrayList<>());
+                UserManager.guardarUsuario(u);
+                
+            }*/
+        
 
         }
+        
     }
+    
     
     
       

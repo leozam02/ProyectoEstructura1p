@@ -4,6 +4,7 @@
  */
 package ec.edu.espol.proyecto1p;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -14,8 +15,8 @@ import java.util.ListIterator;
  *
  * @author leoza
  */
-public class ArrayList<E> implements List<E> {
-    
+public class ArrayList<E> implements List<E>, Serializable {
+    private static final long serialVersionUID=1L;
     private E [] elements=null;
     private int capacity =100;
     private int effectiveSize;

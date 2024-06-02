@@ -2,7 +2,9 @@ ec\edu\espol\proyecto1p\App.class
 ec\edu\espol\proyecto1p\SecondaryController.class
 ec\edu\espol\proyecto1p\MenuController.class
 ec\edu\espol\proyecto1p\UserManager.class
+ec\edu\espol\proyecto1p\CreacionController.class
 ec\edu\espol\proyecto1p\MedioDeTransporte.class
+ec\edu\espol\proyecto1p\MediosTransporteManager.class
 ec\edu\espol\proyecto1p\ImageFunction.class
 ec\edu\espol\proyecto1p\Lector.class
 module-info.class

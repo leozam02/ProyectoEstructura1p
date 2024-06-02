@@ -10,16 +10,26 @@ import java.io.Serializable;
  *
  * @author leoza
  */
-public class Usuario {
+public class Usuario  {
     private String name;
     private String password;
     private ArrayList<MedioDeTransporte> autos;
-    
+    private ArrayList<MedioDeTransporte> favoritos;
+    private ArrayList<String> ids; 
 
-    public Usuario(String name, String password, ArrayList<MedioDeTransporte> autos) {
+    public Usuario(String name, String password, ArrayList<MedioDeTransporte> autos,ArrayList<MedioDeTransporte> favoritos ) {
         this.name = name;
         this.password = password;
         this.autos = autos;
+        this.favoritos=favoritos;
+    }
+
+    public ArrayList<MedioDeTransporte> getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(ArrayList<MedioDeTransporte> favoritos) {
+        this.favoritos = favoritos;
     }
 
     public String getName() {
@@ -46,6 +56,17 @@ public class Usuario {
         this.autos = autos;
     }
     
-    
+    @Override
+    public String toString(){
+        return name+" "+password;
+    }
+
+    public ArrayList<String> getIds() {
+        return ids;
+    }
+
+    public void setIds(ArrayList<String> ids) {
+        this.ids = ids;
+    }
     
 }

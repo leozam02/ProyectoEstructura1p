@@ -5,7 +5,9 @@
 package ec.edu.espol.proyecto1p;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
@@ -51,6 +53,26 @@ public class Lector {
         }
         return filtrados;
         
-        
-             }
+        }
+             
+        public static ArrayList<MedioDeTransporte> filtrarPorMarca(List<MedioDeTransporte> lista, String marca) {
+        ArrayList<MedioDeTransporte> filtrados = new ArrayList<>();
+        for (MedioDeTransporte transporte : lista) {
+            if (transporte.getMarca().equalsIgnoreCase(marca)) {
+                filtrados.add(transporte);
+            }
+        }
+        return filtrados;
+    }
+    public static void escribirEnCSV(MedioDeTransporte medio) {
+    try {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Datos.csv", true));
+        writer.write(medio.toString());
+        writer.newLine();
+        writer.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
 }

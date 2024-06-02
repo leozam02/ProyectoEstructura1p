@@ -112,7 +112,7 @@ public class DatosController implements Initializable {
 
     @FXML
     private void clickDerecha(ActionEvent event) {
-                        fotoActualIndex++; // Incrementar el índice
+        fotoActualIndex++; // Incrementar el índice
         try {
             mostrarImagen(); // Mostrar la nueva imagen
         } catch (FileNotFoundException ex) {
