@@ -86,9 +86,10 @@ public class CreacionController implements Initializable {
                 if (!validarCampos()) {
             return;
         }
-        // Crear el objeto MedioTransporte con los datos ingresados
+        //Se crea el objeto MedioTransporte con los datos ingresados
         MedioDeTransporte nuevoMedio = crearMedioTransporte();
         System.out.println(nuevoMedio);
+        UserManager.getUsuario().getAutos().add(nuevoMedio);
         Lector.escribirEnCSV(nuevoMedio);
         try {
             FXMLLoader fxml = App.loadFXML("Menu");
@@ -104,72 +105,74 @@ public class CreacionController implements Initializable {
             Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
             a.show();
         }
+        System.out.println(UserManager.getUsuario().getAutos().get(0));
+                
     }
 
     @FXML
     private void subirImagen(ActionEvent event) {
         vpane.setAlignment(Pos.CENTER);
         Scroll2.setFitToWidth(true);
-            // Validar que todos los campos estén llenos
-    if (!camposLlenos()) {
-        // Mostrar un mensaje de error
-        System.out.println("Por favor, complete todos los campos antes de subir una imagen.");
-        return;
-    }
-    
-    try {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select Image");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg"));
-
-        Stage stage = (Stage) vpane.getScene().getWindow();
-        List<File> files = fileChooser.showOpenMultipleDialog(stage);
-
-        if (files != null) {
-            for (File file : files) {
-                if (file.getName().toLowerCase().endsWith(".jpg")) {
-                    try {
-                        // Obtener la ruta de la carpeta "img"
-                        String imgFolderPath = System.getProperty("user.dir") + File.separator + "img";
-
-                        // Crear la carpeta "img" si no existe
-                        File imgFolder = new File(imgFolderPath);
-                        if (!imgFolder.exists()) {
-                            imgFolder.mkdir();
-                        }
-
-                        // Generar el nuevo nombre del archivo
-                        String newFileName = textoId.getText() + "-" + System.currentTimeMillis() + ".jpg";
-
-                        // Crear un nuevo archivo en la carpeta "img" con el nuevo nombre
-                        File imgFile = new File(imgFolderPath, newFileName);
-                        if (imgFile.createNewFile()) {
-                            // Copiar la imagen seleccionada al archivo creado
-                            Files.copy(file.toPath(), imgFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-
-                            // Mostrar la imagen en el VBox
-                            Image image = new Image(imgFile.toURI().toString());
-                            ImageView imageView = new ImageView(image);
-                            imageView.setFitWidth(400);
-                            imageView.setFitHeight(400);
-                            imageView.setPreserveRatio(true);
-                            vpane.getChildren().add(imageView);
-                        } else {
-                            System.out.println("No se pudo crear el archivo: " + imgFile.getName());
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    System.out.println("El archivo " + file.getName() + " no es un archivo .jpg");
-                }
-            }
-        } else {
-            System.out.println("No se seleccionaron archivos.");
+       //Validar que todos los campos estén llenos
+        if (!camposLlenos()) {
+            // Mostrar un mensaje de error
+            System.out.println("Por favor, complete todos los campos antes de subir una imagen.");
+            return;
         }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
+            //FileChooser para agregar la imagen
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Select Image");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg"));
+
+            Stage stage = (Stage) vpane.getScene().getWindow();
+            List<File> files = fileChooser.showOpenMultipleDialog(stage);
+
+            if (files != null) {
+                for (File file : files) {
+                    if (file.getName().toLowerCase().endsWith(".jpg")) {
+                        try {
+                            // Obtener la ruta de la carpeta "img"
+                            String imgFolderPath = System.getProperty("user.dir") + File.separator + "img";
+
+                            // Crear la carpeta "img" si no existe
+                            File imgFolder = new File(imgFolderPath);
+                            if (!imgFolder.exists()) {
+                                imgFolder.mkdir();
+                            }
+
+                            // Generar el nuevo nombre del archivo
+                            String newFileName = textoId.getText() + "-" + System.currentTimeMillis() + ".jpg";
+
+                            // Crear un nuevo archivo en la carpeta "img" con el nuevo nombre
+                            File imgFile = new File(imgFolderPath, newFileName);
+                            if (imgFile.createNewFile()) {
+                                // Copiar la imagen seleccionada al archivo creado
+                                Files.copy(file.toPath(), imgFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+                                // Mostrar la imagen en el VBox
+                                Image image = new Image(imgFile.toURI().toString());
+                                ImageView imageView = new ImageView(image);
+                                imageView.setFitWidth(400);
+                                imageView.setFitHeight(400);
+                                imageView.setPreserveRatio(true);
+                                vpane.getChildren().add(imageView);
+                            } else {
+                                System.out.println("No se pudo crear el archivo: " + imgFile.getName());
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        System.out.println("El archivo " + file.getName() + " no es un archivo .jpg");
+                    }
+                }
+            } else {
+                System.out.println("No se seleccionaron archivos.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -226,8 +229,7 @@ public class CreacionController implements Initializable {
     }
 
     private MedioDeTransporte crearMedioTransporte() {
-        // Aquí puedes crear un nuevo objeto MedioTransporte con los datos ingresados en los campos de texto
-        // Ejemplo:
+
         String fecha = textoFecha.getText();
         String marca = textoMarca.getText();
         String modelo = textoModelo.getText();
@@ -239,9 +241,6 @@ public class CreacionController implements Initializable {
         String descripcion = textoDesc.getText();
         String nombre = TextoNombre.getText();
         String id = textoId.getText();
-
-        // Aquí puedes crear un nuevo objeto MedioTransporte con los datos obtenidos
-        // y retornarlo
         return new MedioDeTransporte(fecha, marca, modelo, kilometraje, motor, transmision, precio, provincia, descripcion, nombre, id);
     }
 

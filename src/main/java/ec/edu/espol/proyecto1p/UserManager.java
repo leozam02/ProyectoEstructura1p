@@ -32,6 +32,8 @@ public class UserManager  {
         public static Usuario getUsuario() {
             return usuario;
         }
+        
+        //Prueba de escrribir archivos
         public static void escribirUsuarioCSV(Usuario usuario, String filePath) {
             ArrayList<Usuario> usuarios = leerUsuariosCSV(filePath);
             boolean usuarioExiste = false;

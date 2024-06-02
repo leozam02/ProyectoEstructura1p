@@ -31,7 +31,7 @@ public class Lector {
                 //Willy Wonka y los Humpa Lumpa, una aventura en la fabrica de chocolates,wonka.jpg
                String[] tokens = line.split(";");
                MedioDeTransporte m = new MedioDeTransporte(tokens[0],tokens[1],tokens[2],Integer.parseInt(tokens[3]),
-                       Integer.parseInt(tokens[4]),tokens[5],Integer.parseInt(tokens[6]),tokens[7],tokens[8],tokens[9],tokens[10]);
+               Integer.parseInt(tokens[4]),tokens[5],Integer.parseInt(tokens[6]),tokens[7],tokens[8],tokens[9],tokens[10]);
                r.add(m);
             }
         }
@@ -44,7 +44,7 @@ public class Lector {
     }
      
      
-             public static ArrayList<String> filtrar(ArrayList<String> lista, String marca) {
+    public static ArrayList<String> filtrar(ArrayList<String> lista, String marca) {
         ArrayList<String> filtrados = new ArrayList<>();
         for (String t : lista) {
            String [] tokens=t.split("-");
@@ -53,9 +53,9 @@ public class Lector {
         }
         return filtrados;
         
-        }
+    }
              
-        public static ArrayList<MedioDeTransporte> filtrarPorMarca(List<MedioDeTransporte> lista, String marca) {
+    public static ArrayList<MedioDeTransporte> filtrarPorMarca(List<MedioDeTransporte> lista, String marca) {
         ArrayList<MedioDeTransporte> filtrados = new ArrayList<>();
         for (MedioDeTransporte transporte : lista) {
             if (transporte.getMarca().equalsIgnoreCase(marca)) {
@@ -73,6 +73,47 @@ public class Lector {
     } catch (IOException e) {
         e.printStackTrace();
     }
-}
+    
+    }
+    
+    public static boolean igualdad(ArrayList<MedioDeTransporte> t, MedioDeTransporte k){
+        for(MedioDeTransporte m: t){
+            if(m.getId().equals(k.getId()))
+                return true;
+            
+        }
+        return false;
+        
+        
+    }
+    
+    //Eliminacion de linea verificando el ID
+    public static void eliminarLineaPorID(String filePath, String id) {
+        List<String> lineasNuevas = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] campos = linea.split(";");
+                if (!campos[10].equals(id)) {
+                    lineasNuevas.add(linea);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Se escribenlas líneas nuevas en el archivo CSV
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
+            for (String nuevaLinea : lineasNuevas) {
+                bw.write(nuevaLinea);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
 
 }

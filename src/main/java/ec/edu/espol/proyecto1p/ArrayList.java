@@ -80,16 +80,19 @@ public class ArrayList<E> implements List<E>, Serializable {
        return effectiveSize==0;
     }
     
-        public ArrayList<E> FindInt( ArrayList<E> elements,Comparator<E> cmp, E another ){
+        public ArrayList<E> FindInt( Comparator<E> cmp ){
         ArrayList<E> results=new ArrayList();
         for(E e:this){
-            if(cmp.compare(e, another)==0)
+            //if(cmp.compare(e, )<0)
                 results.add(e);
                 
         }
         return results;
     }
 
+        
+        
+        
     
     
     @Override
@@ -132,9 +135,26 @@ public class ArrayList<E> implements List<E>, Serializable {
 
 
     @Override
-    public boolean remove(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        public boolean remove(Object o) {
+            if (o == null) {
+                return false;
+            }
+
+            for (int i = 0; i < effectiveSize; i++) {
+                if (o.equals(elements[i])) {
+                    
+                    for (int j = i; j < effectiveSize - 1; j++) {
+                        elements[j] = elements[j + 1];
+                    }
+                    
+                    elements[effectiveSize - 1] = null;
+                    effectiveSize--;
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
     @Override
     public boolean containsAll(Collection<?> c) {

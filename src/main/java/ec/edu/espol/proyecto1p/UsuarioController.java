@@ -27,6 +27,7 @@ import javafx.stage.Stage;
  * @author leoza
  */
 public class UsuarioController implements Initializable {
+    
 
     @FXML
     private HBox hbox;
@@ -62,7 +63,8 @@ public class UsuarioController implements Initializable {
             String username = nameUsuario.getText();
             String password = contrasenaUsuario.getText();
             Usuario u = new Usuario(username, password, new ArrayList<>(),new ArrayList<>());
-            UserManager.escribirUsuarioCSV(u, "Usuarios.csv");
+            //UserManager.escribirUsuarioCSV(u, "Usuarios.csv");
+            UserManager.setUsuario(u);
             abrirVentana("AUTOS");
                 Button b = (Button) event.getSource();
                 Stage curr = (Stage) b.getScene().getWindow();

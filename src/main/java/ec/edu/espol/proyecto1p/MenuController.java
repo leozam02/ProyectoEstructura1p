@@ -62,6 +62,8 @@ public class MenuController implements Initializable {
     private Button botonCreacion;
     
     private MedioDeTransporte selected=null;
+    @FXML
+    private Button botonEditar;
     
     
     /**
@@ -69,12 +71,12 @@ public class MenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-             // Agregar opciones al ComboBox de ordenamiento
+        
         comboOrden.getItems().addAll("Ordenar por nombre de marca", "Ordenar por precio de mayor a menor");
-     vpane.setAlignment(Pos.CENTER);
-     Scroll.setFitToWidth(true);
-     Lista=Lector.leerArchivo("Datos.csv");
-     CargaInicial(Lista);
+         vpane.setAlignment(Pos.CENTER);
+         Scroll.setFitToWidth(true);
+         Lista=Lector.leerArchivo("Datos.csv");
+         CargaInicial(Lista);
     }
 
 
@@ -336,6 +338,27 @@ public class MenuController implements Initializable {
         
         
     }
+
+    @FXML
+    private void Editar(ActionEvent event) {
+            try {
+            FXMLLoader fxml = App.loadFXML("Editor");
+            Scene sc = new Scene(fxml.load(),600,600);
+            Stage st = new Stage();
+            st.setScene(sc);
+            st.show();
+            
+            Button b = (Button)event.getSource();
+            Stage s = (Stage) b.getScene().getWindow();
+            s.close();
+        } catch (IOException ex) {
+            Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
+            a.show();
+        }
+        
+        
+    }
+    
     
     
       

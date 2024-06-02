@@ -25,7 +25,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="77.0" prefWidth="465.0">
                <children>
-                  <Button mnemonicParsing="false" text="FAVORITO" />
+                  <Button fx:id="botonFav" mnemonicParsing="false" onAction="#favorito" text="FAVORITO" />
                </children>
             </HBox>
          </children>

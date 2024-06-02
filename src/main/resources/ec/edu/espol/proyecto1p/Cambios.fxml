@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto1p.CambiosController">
+   <right>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="NOMBRE" />
+            <TextField fx:id="textoNombre" />
+            <Button fx:id="botonEditar" mnemonicParsing="false" onAction="#editarCambios" prefHeight="35.0" prefWidth="100.0" text="EDITAR" />
+         </children>
+      </VBox>
+   </right>
+   <top>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="botonEliminar" mnemonicParsing="false" onAction="#Eliminar" text="ELIMINAR" />
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="SI USTED DESEA " />
+            <Label text="ELIMINAR LA" />
+            <Label text="IMAGEN" />
+            <Label prefHeight="17.0" prefWidth="92.0" text="DE CLICK SOBRE" />
+            <Label text="ELLA" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="vpane" alignment="CENTER" prefHeight="237.0" prefWidth="322.0" />
+         </content>
+      </ScrollPane>
+   </center>
+   <left>
+      <ScrollPane prefHeight="235.0" prefWidth="176.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox prefHeight="227.0" prefWidth="175.0">
+               <children>
+                  <Label text="FECHA" />
+                  <TextField fx:id="textoFecha" prefHeight="25.0" prefWidth="133.0" />
+                  <Label text="MARCA" />
+                  <TextField fx:id="textoMarca" />
+                  <Label layoutX="10.0" layoutY="10.0" text="MODELO" />
+                  <TextField fx:id="textoModelo" layoutX="10.0" layoutY="69.0" />
+                  <Label layoutX="10.0" layoutY="94.0" text="KILOMETRAJE" />
+                  <TextField fx:id="textoKilometraje" layoutX="10.0" layoutY="111.0" />
+                  <Label layoutX="10.0" layoutY="136.0" text="MOTOR" />
+                  <TextField fx:id="textoMotor" layoutX="10.0" layoutY="153.0" />
+                  <Label layoutX="10.0" layoutY="178.0" text="TRANSMISION" />
+                  <TextField fx:id="textoTransmision" layoutX="10.0" layoutY="195.0" />
+                  <Label layoutX="10.0" layoutY="220.0" text="PRECIO" />
+                  <TextField fx:id="textoPrecio" layoutX="10.0" layoutY="237.0" />
+                  <Label layoutX="10.0" layoutY="262.0" text="PROVINICA" />
+                  <TextField fx:id="textoProvincia" layoutX="10.0" layoutY="279.0" />
+                  <Label fx:id="T" layoutX="10.0" layoutY="304.0" text="DESCRIPCION" />
+                  <TextField fx:id="textoDesc" layoutX="10.0" layoutY="321.0" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </left>
+</BorderPane>

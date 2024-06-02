@@ -46,6 +46,10 @@ public class DatosController implements Initializable {
     private MedioDeTransporte selected;
     @FXML
     private HBox hbox;
+    @FXML
+    private Button botonFav;
+    
+    private ArrayList<MedioDeTransporte> vehiculos;
     
     /**
      * Initializes the controller class.
@@ -65,28 +69,26 @@ public class DatosController implements Initializable {
     }
 
     private void mostrarImagen() throws FileNotFoundException  {
-        hbox.getChildren().clear(); // Limpiar el HBox antes de agregar la imagen
+        hbox.getChildren().clear(); //Limpieza del Hbox
 
-        // Verificar si el objeto tiene fotos
+        //Verificar si se tiene fotos
         if (selected != null && selected.getFotos() != null && !selected.getFotos().isEmpty()) {
-            // Obtener la lista de fotos del objeto
+            //Lista de fotos del vehiculo
             ArrayList<String> fotos = selected.getFotos();
-            // Asegurarse de que el índice de la foto actual esté dentro de los límites
+            // Asegurarse de que el índice esta en los limites
             if (fotoActualIndex < 0) {
-                fotoActualIndex = fotos.size() - 1; // Reiniciar al final de la lista
+                fotoActualIndex = fotos.size() - 1; //Reiniciar al final de la lista
             } else if (fotoActualIndex >= fotos.size()) {
-                fotoActualIndex = 0; // Reiniciar al principio de la lista
+                fotoActualIndex = 0; //Reiniciar al principio de la lista
             }
             System.out.println(fotos.get(fotoActualIndex));
-            // Crear un ImageView y cargar la imagen correspondiente
+            //Se crea la imagen
             String foto=selected.getFotos().get(fotoActualIndex);
             Image image = new Image(new FileInputStream("img/"+foto));
             ImageView imv = new ImageView(image);
-            
-            // Configurar el tamaño del ImageView (ajústalo según tus necesidades)
+          
             imv.setFitWidth(300);
             imv.setFitHeight(300);
-            // Agregar el ImageView al HBox
             hbox.getChildren().add(imv);
         }
     }   
@@ -112,9 +114,9 @@ public class DatosController implements Initializable {
 
     @FXML
     private void clickDerecha(ActionEvent event) {
-        fotoActualIndex++; // Incrementar el índice
+        fotoActualIndex++; //Incrementar el índice
         try {
-            mostrarImagen(); // Mostrar la nueva imagen
+            mostrarImagen(); 
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }
@@ -124,13 +126,56 @@ public class DatosController implements Initializable {
     @FXML
     private void clickIzquierda(ActionEvent event) {
         
-                fotoActualIndex--; // Decrementar el índice
+                fotoActualIndex--; //Se reduce el índice
         try {
-            mostrarImagen(); // Mostrar la nueva imagen
+            mostrarImagen(); 
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }
         
     }
+
+    @FXML
+    private void favorito(ActionEvent event) {
+        vehiculos=Lector.leerArchivo("Datos.csv");
+        
+        if(!(Lector.igualdad(UserManager.getUsuario().getFavoritos(),selected))){
+            
+            UserManager.getUsuario().getFavoritos().add(selected);
+            try {
+            FXMLLoader fxml = App.loadFXML("Menu");
+            Scene sc = new Scene(fxml.load(),600,600);
+            Stage st = new Stage();
+            st.setScene(sc);
+            st.show();
+            
+            Button b = (Button)event.getSource();
+            Stage s = (Stage) b.getScene().getWindow();
+            s.close();
+        } catch (IOException ex) {
+            Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
+            a.show();
+        }
+            
+            
+            
+        }
+        else{
+            showAlert("FAVORITO YA AGREGADO","BUSQUE OTRO VEHICULO");
+        }
+        
+        
+        System.out.println(UserManager.getUsuario().getFavoritos().get(0));
+        
+    }
     
+    
+      private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }
