@@ -88,7 +88,7 @@ public class MenuController implements Initializable {
                 
             try {
                 m.setFotos(Lector.filtrar(nameImages, m.getId()));
-                String foto=m.getFotos().get(0);
+                String foto=m.getFotos().getCurrent();
                 Image image = new Image(new FileInputStream("img/"+foto));
                 ImageView imv = new ImageView(image);
                 

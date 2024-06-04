@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -75,17 +76,19 @@ public class DatosController implements Initializable {
         if (selected != null && selected.getFotos() != null && !selected.getFotos().isEmpty()) {
             //Lista de fotos del vehiculo
             
-            // CAMBIAR
-            ArrayList<String> fotos = selected.getFotos();
+            /* CAMBIAR
+            Redundancia: select fotos for each!?
+            */
+            DoubleCircularList<String> fotos = selected.getFotos();
             // Asegurarse de que el índice esta en los limites
             if (fotoActualIndex < 0) {
                 fotoActualIndex = fotos.size() - 1; //Reiniciar al final de la lista
             } else if (fotoActualIndex >= fotos.size()) {
                 fotoActualIndex = 0; //Reiniciar al principio de la lista
             }
-            System.out.println(fotos.get(fotoActualIndex));
+            System.out.println(fotos.getCurrent());
             //Se crea la imagen
-            String foto=selected.getFotos().get(fotoActualIndex);
+            String foto=selected.getFotos().getCurrent();
             Image image = new Image(new FileInputStream("img/"+foto));
             ImageView imv = new ImageView(image);
           
@@ -116,7 +119,8 @@ public class DatosController implements Initializable {
 
     @FXML
     private void clickDerecha(ActionEvent event) {
-        fotoActualIndex++; //Incrementar el índice
+        selected.getFotos().moveToNext();
+
         try {
             mostrarImagen(); 
         } catch (FileNotFoundException ex) {
@@ -127,8 +131,8 @@ public class DatosController implements Initializable {
 
     @FXML
     private void clickIzquierda(ActionEvent event) {
+        selected.getFotos().moveToPrev();
         
-                fotoActualIndex--; //Se reduce el índice
         try {
             mostrarImagen(); 
         } catch (FileNotFoundException ex) {

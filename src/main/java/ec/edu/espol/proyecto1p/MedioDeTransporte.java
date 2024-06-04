@@ -5,6 +5,7 @@
 package ec.edu.espol.proyecto1p;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -22,7 +23,7 @@ public class MedioDeTransporte  {
     private String descripcion;
     private String nombre;
     private String id;
-    private ArrayList<String> fotos;
+    private DoubleCircularList<String> fotos;
     private static final long serialVersionUID=1L;
 
 
@@ -131,17 +132,14 @@ public class MedioDeTransporte  {
         this.id = id;
     }
 
-    public void setFotos(ArrayList<String> fotos) {
+    public void setFotos(DoubleCircularList<String> fotos) {
         this.fotos = fotos;
     }
 
-    public ArrayList<String> getFotos() {
+    public DoubleCircularList<String> getFotos() {
         return fotos;
     }
         
-    
-    
-    
     
         @Override
     public String toString(){

@@ -116,9 +116,9 @@ private boolean camposLlenos() {
     
     private void CargaInicial() throws FileNotFoundException{
         System.out.println(UserManager.getUsuario().getAutos().size());
-        t1.setFotos(Lector.filtrar(nameImages, t1.getId()));
+        //t1.setFotos();
         for (int i=0; i<t1.getFotos().size();i++){
-        String foto=t1.getFotos().get(i);
+        String foto=t1.getFotos().getCurrent();
         Image image = new Image(new FileInputStream("img/"+foto));
                 ImageView imv = new ImageView(image);
                 
