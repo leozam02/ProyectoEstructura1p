@@ -74,6 +74,8 @@ public class DatosController implements Initializable {
         //Verificar si se tiene fotos
         if (selected != null && selected.getFotos() != null && !selected.getFotos().isEmpty()) {
             //Lista de fotos del vehiculo
+            
+            // CAMBIAR
             ArrayList<String> fotos = selected.getFotos();
             // Asegurarse de que el índice esta en los limites
             if (fotoActualIndex < 0) {
