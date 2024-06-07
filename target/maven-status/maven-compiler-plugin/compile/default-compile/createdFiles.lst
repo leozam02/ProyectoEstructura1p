@@ -2,7 +2,6 @@ ec\edu\espol\proyecto1p\App.class
 ec\edu\espol\proyecto1p\EditorController.class
 ec\edu\espol\proyecto1p\SecondaryController.class
 ec\edu\espol\proyecto1p\CircularDoublyLinkedList$Node.class
-ec\edu\espol\proyecto1p\CircularLinkedList.class
 ec\edu\espol\proyecto1p\MenuController.class
 ec\edu\espol\proyecto1p\CreacionController.class
 ec\edu\espol\proyecto1p\ImageFunction.class

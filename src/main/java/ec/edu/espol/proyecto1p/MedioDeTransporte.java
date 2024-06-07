@@ -12,7 +12,7 @@ import java.util.List;
  * @author leoza
  */
 public class MedioDeTransporte  {
-       private String fecha;
+    private String fecha;
     private String Marca;
     private String Modelo;
     private int kilometraje;
@@ -24,7 +24,6 @@ public class MedioDeTransporte  {
     private String nombre;
     private String id;
     private DoubleCircularList<String> fotos;
-    private static final long serialVersionUID=1L;
 
 
     public MedioDeTransporte(String fecha, String Marca, String Modelo, int kilometraje, int motor, String transmision, int precio, String provincia, String descripcion, String nombre, String id) {

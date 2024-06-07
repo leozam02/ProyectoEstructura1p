@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -80,7 +82,7 @@ public class MenuController implements Initializable {
     }
 
 
-    private void CargaInicial(ArrayList<MedioDeTransporte> t){
+    private void CargaInicial(List<MedioDeTransporte> t){
         
         vpane.getChildren().clear();
         for(MedioDeTransporte m:t){
@@ -293,29 +295,22 @@ public class MenuController implements Initializable {
     @FXML
     private void ordenamiento(ActionEvent event) {
     String seleccion = comboOrden.getValue();
-    //ArrayList<MedioDeTransporte> listaOrdenada = Lista;
+    List<MedioDeTransporte> transportes = new ArrayList<>(): 
+    
 
     if ("Ordenar por nombre de marca".equals(seleccion)) {
         System.out.println("Valor seleccionado: " + seleccion);
-
-        /*Collections.sort(listaOrdenada, new Comparator<MedioDeTransporte>() {
-            @Override
-            public int compare(MedioDeTransporte m1, MedioDeTransporte m2) {
-                return m1.getMarca().compareTo(m2.getMarca());
-            }
-        });*/
+        Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t1.getMarca().compareTo(t2.getMarca()));
+        sortedTransportes.addAll(Lista);
+        
     } else if ("Ordenar por precio de mayor a menor".equals(seleccion)) {
         System.out.println("Valor seleccionado: " + seleccion);
-
-        /*Collections.sort(listaOrdenada, new Comparator<MedioDeTransporte>() {
-            @Override
-            public int compare(MedioDeTransporte m1, MedioDeTransporte m2) {
-                return Double.compare(m2.getPrecio(), m1.getPrecio());
-            }
-        });*/
+        Collections.sort(listaOrdenada, (m1, m2) ->
+               Double.compare(m2.getPrecio(), m1.getPrecio())
+        );
     }
 
-    //CargaInicial(listaOrdenada);
+    CargaInicial(listaOrdenada);
     }
 
     @FXML
@@ -334,10 +329,8 @@ public class MenuController implements Initializable {
             Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
             a.show();
         }
-        
-        
-        
     }
+    
 
     @FXML
     private void Editar(ActionEvent event) {
@@ -358,10 +351,5 @@ public class MenuController implements Initializable {
         
         
     }
-    
-    
-    
-      
-    
     
 }

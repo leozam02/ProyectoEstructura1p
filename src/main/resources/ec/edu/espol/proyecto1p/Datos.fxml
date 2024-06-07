@@ -41,6 +41,8 @@
    <right>
       <VBox alignment="CENTER" prefHeight="205.0" prefWidth="85.0" BorderPane.alignment="CENTER">
          <children>
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="--&gt;" />
             <Button fx:id="derecha" mnemonicParsing="false" onAction="#clickDerecha" text="--&gt;">
                <font>
                   <Font name="Bookshelf Symbol 7" size="17.0" />
