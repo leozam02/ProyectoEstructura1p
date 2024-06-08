@@ -305,40 +305,35 @@ public class MenuController implements Initializable {
     @FXML
     private void ordenamiento(ActionEvent event) {
 
-    String seleccion = comboOrden.getValue();
-    //List<MedioDeTransporte> transportes = new ArrayList<>();
-    
-    List<MedioDeTransporte> listaOrdenada;
+        String seleccion = comboOrden.getValue();
+        //List<MedioDeTransporte> transportes = new ArrayList<>();
 
-    if ("Ordenar por nombre de marca".equals(seleccion)) {
-        Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t1.getMarca().compareTo(t2.getMarca()));
-        listaOrdenada = new ArrayList<>();
-        System.out.println("Valor seleccionado: " + seleccion);
-        sortedTransportes.addAll(Lista);
-        while (!sortedTransportes.isEmpty()) {
-            listaOrdenada.add(sortedTransportes.poll());
-    CargaInicial(listaOrdenada);
+        List<MedioDeTransporte> listaOrdenada;
+
+        if ("Ordenar por nombre de marca".equals(seleccion)) {
+            Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t1.getMarca().compareTo(t2.getMarca()));
+            listaOrdenada = new ArrayList<>();
+            System.out.println("Valor seleccionado: " + seleccion);
+            sortedTransportes.addAll(Lista);
+            while (!sortedTransportes.isEmpty()) {
+                listaOrdenada.add(sortedTransportes.poll());
+        CargaInicial(listaOrdenada);
+            }
+        } 
+
+        else if ("Ordenar por precio de mayor a menor".equals(seleccion)) {
+            Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t1.getPrecio()- t2.getPrecio());
+
+            listaOrdenada = new ArrayList<>();
+            System.out.println("Valor seleccionado: " + seleccion);
+            sortedTransportes.addAll(Lista);
+            while (!sortedTransportes.isEmpty()) {
+                listaOrdenada.add(sortedTransportes.poll());
+                CargaInicial(listaOrdenada);
+            }
         }
-    } 
-        
-    else if ("Ordenar por precio de mayor a menor".equals(seleccion)) {
-        Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t1.getPrecio()- t2.getPrecio());
-
-        listaOrdenada = new ArrayList<>();
-        System.out.println("Valor seleccionado: " + seleccion);
-        sortedTransportes.addAll(Lista);
-        while (!sortedTransportes.isEmpty()) {
-            listaOrdenada.add(sortedTransportes.poll());
-    CargaInicial(listaOrdenada);
     }
-    }
-
-
-
-    CargaInicial(listaOrdenada);
-
-
-    }
+    
 
     @FXML
     private void crear(ActionEvent event) {
