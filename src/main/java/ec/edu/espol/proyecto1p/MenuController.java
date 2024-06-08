@@ -75,10 +75,10 @@ public class MenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         comboOrden.getItems().addAll("Ordenar por nombre de marca", "Ordenar por precio de mayor a menor");
-         vpane.setAlignment(Pos.CENTER);
-         Scroll.setFitToWidth(true);
-         Lista=Lector.leerArchivo("Datos.csv");
-         CargaInicial(Lista);
+        vpane.setAlignment(Pos.CENTER);
+        Scroll.setFitToWidth(true);
+        Lista=Lector.leerArchivo("Datos.csv");
+        CargaInicial(Lista);
     }
 
 
@@ -291,26 +291,36 @@ public class MenuController implements Initializable {
          CargaInicial(resultados);
 
     }
-
     @FXML
     private void ordenamiento(ActionEvent event) {
     String seleccion = comboOrden.getValue();
-    List<MedioDeTransporte> transportes = new ArrayList<>(): 
+    //List<MedioDeTransporte> transportes = new ArrayList<>();
     
+    List<MedioDeTransporte> listaOrdenada;
 
     if ("Ordenar por nombre de marca".equals(seleccion)) {
-        System.out.println("Valor seleccionado: " + seleccion);
         Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t1.getMarca().compareTo(t2.getMarca()));
-        sortedTransportes.addAll(Lista);
-        
-    } else if ("Ordenar por precio de mayor a menor".equals(seleccion)) {
+        listaOrdenada = new ArrayList<>();
         System.out.println("Valor seleccionado: " + seleccion);
-        Collections.sort(listaOrdenada, (m1, m2) ->
-               Double.compare(m2.getPrecio(), m1.getPrecio())
-        );
+        sortedTransportes.addAll(Lista);
+        while (!sortedTransportes.isEmpty()) {
+            listaOrdenada.add(sortedTransportes.poll());
+    CargaInicial(listaOrdenada);
+        }
+    } 
+        
+    else if ("Ordenar por precio de mayor a menor".equals(seleccion)) {
+        Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t1.getPrecio()- t2.getPrecio());
+
+        listaOrdenada = new ArrayList<>();
+        System.out.println("Valor seleccionado: " + seleccion);
+        sortedTransportes.addAll(Lista);
+        while (!sortedTransportes.isEmpty()) {
+            listaOrdenada.add(sortedTransportes.poll());
+    CargaInicial(listaOrdenada);
+    }
     }
 
-    CargaInicial(listaOrdenada);
     }
 
     @FXML
