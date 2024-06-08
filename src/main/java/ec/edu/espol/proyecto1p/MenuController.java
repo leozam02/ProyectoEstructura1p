@@ -298,7 +298,7 @@ public class MenuController implements Initializable {
     
     @FXML
     private void favoritos(ActionEvent event) {
-        
+        CargaInicial(UserManager.getUsuario().getFavoritos());
     }
     
     
@@ -369,9 +369,7 @@ public class MenuController implements Initializable {
         } catch (IOException ex) {
             Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
             a.show();
-        }
-        
-        
+        }        
     }
     
 }

@@ -162,9 +162,7 @@ public class DatosController implements Initializable {
             Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
             a.show();
         }
-            
-            
-            
+                
         }
         else{
             showAlert("FAVORITO YA AGREGADO","BUSQUE OTRO VEHICULO");
