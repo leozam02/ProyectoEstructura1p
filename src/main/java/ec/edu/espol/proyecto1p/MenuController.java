@@ -30,6 +30,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -41,7 +42,7 @@ import javafx.stage.Stage;
 public class MenuController implements Initializable {
 
     @FXML
-    private VBox vpane;
+    private FlowPane vpane;
     private ArrayList<MedioDeTransporte> Lista;
     ArrayList<String> nameImages=ImageFunction.cargarImagenes("img");
     @FXML
@@ -294,6 +295,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void ordenamiento(ActionEvent event) {
+        /*
     String seleccion = comboOrden.getValue();
     List<MedioDeTransporte> transportes = new ArrayList<>(): 
     
@@ -311,6 +313,7 @@ public class MenuController implements Initializable {
     }
 
     CargaInicial(listaOrdenada);
+*/
     }
 
     @FXML

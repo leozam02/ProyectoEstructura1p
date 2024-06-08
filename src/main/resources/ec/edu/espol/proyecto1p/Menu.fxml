@@ -1,97 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto1p.MenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto1p.MenuController">
    <center>
-      <ScrollPane fx:id="Scroll" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="Scroll" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="vpane" prefHeight="398.0" prefWidth="600.0" />
+            <FlowPane fx:id="vpane" prefHeight="260.0" prefWidth="364.0" style="-fx-background-color: white;" />
          </content>
       </ScrollPane>
    </center>
-   <top>
-      <HBox prefHeight="63.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
-            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="397.0" style="-fx-alignment: center;">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="27.0" prefWidth="531.0" style="-fx-alignment: center; -fx-effect: (one-pass-box , black , 10 , 0.0 , 0 , 0 );" text="TU AUTO IDEAL" textAlignment="CENTER" textFill="#4f7bce" textOverrun="CENTER_ELLIPSIS">
-                     <font>
-                        <Font name="Rockwell Condensed" size="36.0" />
-                     </font>
-                     <effect>
-                        <Glow />
-                     </effect>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
-      </HBox>
-   </top>
    <left>
-      <VBox prefHeight="265.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="341.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="MODELOS">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="ComboModelos" onAction="#ModelosElection" prefWidth="150.0" />
-            <Label text="PRECIOS">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label text="DESDE" />
-            <TextField fx:id="TextoPrecioInicial" onAction="#PrecioDesde" />
-            <Label text="HASTA" />
-            <TextField fx:id="TextoPrecioFInal" onAction="#PrecioHasta" />
-            <Label text="KILOMETRAJE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label text="DESDE" />
-            <TextField fx:id="TextoKmDesde" onAction="#KmDesde" />
-            <Label text="HASTA" />
-            <TextField fx:id="TextoKMhasta" onAction="#KMHasta" />
-            <VBox alignment="CENTER" prefHeight="51.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="17.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="BotonBuscar" mnemonicParsing="false" onAction="#BuscarBotonAction" text="Button" />
+                  <Button fx:id="BotonBuscar" mnemonicParsing="false" onAction="#BuscarBotonAction" style="-fx-background-color: #26268E;" text="BUSCAR" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Button>
                </children>
             </VBox>
          </children>
       </VBox>
    </left>
    <right>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="271.0" prefWidth="138.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="ORDENAMIENTO">
+            <Label prefHeight="17.0" prefWidth="97.0" style="-fx-alignment: center;" text="ORDENAR POR">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </VBox.margin>
             </Label>
-            <ComboBox fx:id="comboOrden" onAction="#ordenamiento" prefWidth="150.0" />
+            <ComboBox fx:id="comboOrden" onAction="#ordenamiento" prefHeight="23.0" prefWidth="121.0" style="-fx-background-color: white; -fx-border-color: grey;">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin></ComboBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" text="FAVORITOS" />
-                  <Label />
-                  <Button fx:id="botonEditar" mnemonicParsing="false" onAction="#Editar" text="EDITAR" />
-                  <Label />
-                  <Button fx:id="botonCreacion" mnemonicParsing="false" onAction="#crear" text="CREAR" />
+                  <Button mnemonicParsing="false" style="-fx-background-color: #26268E;" text="FAVORITOS" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="40.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Button>
+                  <Button fx:id="botonEditar" mnemonicParsing="false" onAction="#Editar" style="-fx-background-color: #92C7DE;" text="EDITAR" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="botonCreacion" mnemonicParsing="false" onAction="#crear" style="-fx-background-color: #92C7DE;" text="CREAR" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font></Button>
                </children>
             </VBox>
          </children>
       </VBox>
    </right>
+   <top>
+      <VBox prefHeight="129.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="59.0" prefWidth="460.0">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../../../../icons/icono.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="46.0" fitWidth="353.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../../../../icons/TU%20AUTO%20IDEAL.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="89.0" text="MODELOS" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="PRECIOS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="100.0" right="80.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="KILOMETRAJE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="39.0" prefWidth="600.0">
+               <children>
+                  <ComboBox fx:id="ComboModelos" onAction="#ModelosElection" prefHeight="28.0" prefWidth="127.0" style="-fx-background-color: white; -fx-border-color: grey;">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <TextField fx:id="TextoPrecioInicial" onAction="#PrecioDesde" prefHeight="25.0" prefWidth="102.0" promptText="Desde">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TextoPrecioFInal" onAction="#PrecioHasta" prefHeight="25.0" prefWidth="102.0" promptText="Hasta">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TextoKmDesde" onAction="#KmDesde" prefHeight="25.0" prefWidth="102.0" promptText="Desde">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TextoKMhasta" onAction="#KMHasta" prefHeight="25.0" prefWidth="102.0" promptText="Hasta">
+                     <HBox.margin>
+                        <Insets left="10.0" right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>
