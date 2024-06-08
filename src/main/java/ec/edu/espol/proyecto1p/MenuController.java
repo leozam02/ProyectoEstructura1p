@@ -66,6 +66,8 @@ public class MenuController implements Initializable {
     private MedioDeTransporte selected=null;
     @FXML
     private Button botonEditar;
+    @FXML
+    private Button bottonFav;
     
     
     /**
@@ -291,6 +293,14 @@ public class MenuController implements Initializable {
          CargaInicial(resultados);
 
     }
+    
+    
+    @FXML
+    private void favoritos(ActionEvent event) {
+        
+    }
+    
+    
     @FXML
     private void ordenamiento(ActionEvent event) {
     String seleccion = comboOrden.getValue();

@@ -84,7 +84,7 @@
             <ComboBox fx:id="comboOrden" onAction="#ordenamiento" prefWidth="150.0" />
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" text="FAVORITOS" />
+                  <Button fx:id="buttonFav" mnemonicParsing="false" text="FAVORITOS" />
                   <Label />
                   <Button fx:id="botonEditar" mnemonicParsing="false" onAction="#Editar" text="EDITAR" />
                   <Label />
