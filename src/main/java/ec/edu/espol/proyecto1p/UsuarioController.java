@@ -5,6 +5,7 @@
 package ec.edu.espol.proyecto1p;
 
 import java.io.IOException;
+import static java.lang.System.console;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -61,7 +62,7 @@ public class UsuarioController implements Initializable {
         }
         else{
             String username = nameUsuario.getText();
-            String password = contrasenaUsuario.getText();
+            String password = console.readPassword(contrasenaUsuario.getText());
             Usuario u = new Usuario(username, password, new ArrayList<>(),new ArrayList<>());
             //UserManager.escribirUsuarioCSV(u, "Usuarios.csv");
             UserManager.setUsuario(u);

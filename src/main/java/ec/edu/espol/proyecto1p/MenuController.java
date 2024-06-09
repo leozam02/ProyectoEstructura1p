@@ -373,6 +373,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void Editar(ActionEvent event) {
+        if(!(UserManager.getUsuario().getAutos().isEmpty())){
             try {
             FXMLLoader fxml = App.loadFXML("Editor");
             Scene sc = new Scene(fxml.load(),600,600);
@@ -386,7 +387,13 @@ public class MenuController implements Initializable {
         } catch (IOException ex) {
             Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
             a.show();
-        }        
+        }   
+        }
+            
+        else{
+           Alert a = new Alert(Alert.AlertType.ERROR,"No tiene autos creados. Cree un nuevo carro");
+            a.show();  
+        }
     }
 
     @FXML

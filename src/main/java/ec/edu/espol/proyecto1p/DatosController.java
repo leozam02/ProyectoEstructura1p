@@ -14,9 +14,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -54,6 +57,8 @@ public class DatosController implements Initializable {
     private HBox hbox;
     @FXML
     private Button botonFav;
+    @FXML
+    private Label infPrincipal;
     
     private List<MedioDeTransporte> vehiculos;
     
@@ -215,6 +220,29 @@ public class DatosController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+      
+      private void cargarInfo() {
+        vpaneNombre.getChildren().clear();
+        Label nameLabel = new Label("Nombre: " + selected.getNombre());
+        Label costLabel = new Label("Costo: " + selected.getPrecio());
+        Label modeloLabel = new Label("Modelo: " + selected.getModelo());
+        Label kmLabel = new Label("Kilometraje: " + selected.getKilometraje());
+        Label descLabel = new Label("Descripción: " + selected.getDescripcion());
+        VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10)); 
+        vbox.getChildren().add(nameLabel);
+        vbox.getChildren().add(costLabel);
+        vbox.getChildren().add(modeloLabel);
+        vbox.getChildren().add(kmLabel);
+        vbox.getChildren().add(descLabel);
+        
+        vbox.setAlignment(Pos.CENTER);
+        vbox.setFillWidth(true);
+        
+        vpaneNombre.getChildren().add(vbox);
+              
     }
 
 }
