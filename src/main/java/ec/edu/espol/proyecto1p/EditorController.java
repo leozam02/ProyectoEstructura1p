@@ -69,7 +69,7 @@ public class EditorController implements Initializable {
             
                 
             try {
-                //m.setFotos(Lector.filtrar(nameImages, m.getId()));
+                m.setFotos(Lector.filtrar(nameImages, m.getId()));
                 String foto=m.getFotos().getCurrent();
                 Image image = new Image(new FileInputStream("img/"+foto));
                 ImageView imv = new ImageView(image);
