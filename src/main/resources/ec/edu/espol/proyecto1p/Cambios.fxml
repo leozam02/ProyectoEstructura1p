@@ -12,9 +12,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto1p.CambiosController">
    <right>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="235.0" prefWidth="113.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="NOMBRE" />
+            <Label text="Nombre" />
             <TextField fx:id="textoNombre">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
@@ -42,11 +42,11 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="SI USTED DESEA " />
-            <Label text="ELIMINAR LA" />
-            <Label text="IMAGEN" />
-            <Label prefHeight="17.0" prefWidth="92.0" text="DE CLICK SOBRE" />
-            <Label text="ELLA" />
+            <Label text="Si desea eliminar la imagen, de click en ella">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
          </children>
       </HBox>
    </bottom>
@@ -58,11 +58,11 @@
       </ScrollPane>
    </center>
    <left>
-      <ScrollPane prefHeight="235.0" prefWidth="176.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="363.0" prefWidth="176.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <content>
-            <VBox prefHeight="227.0" prefWidth="175.0" style="-fx-background-color: white;">
+            <VBox prefHeight="221.0" prefWidth="175.0" style="-fx-background-color: white;">
                <children>
-                  <Label text="FECHA">
+                  <Label text="Fecha">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
@@ -70,7 +70,7 @@
                      <VBox.margin>
                         <Insets left="5.0" right="20.0" />
                      </VBox.margin></TextField>
-                  <Label text="MARCA">
+                  <Label text="Marca">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
@@ -78,7 +78,7 @@
                      <VBox.margin>
                         <Insets left="5.0" right="20.0" />
                      </VBox.margin></TextField>
-                  <Label layoutX="10.0" layoutY="10.0" text="MODELO">
+                  <Label layoutX="10.0" layoutY="10.0" text="Modelo">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
@@ -86,7 +86,7 @@
                      <VBox.margin>
                         <Insets left="5.0" right="20.0" />
                      </VBox.margin></TextField>
-                  <Label layoutX="10.0" layoutY="94.0" text="KILOMETRAJE">
+                  <Label layoutX="10.0" layoutY="94.0" text="Kilometraje">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
@@ -94,7 +94,7 @@
                      <VBox.margin>
                         <Insets left="5.0" right="20.0" />
                      </VBox.margin></TextField>
-                  <Label layoutX="10.0" layoutY="136.0" text="MOTOR">
+                  <Label layoutX="10.0" layoutY="136.0" text="Motor">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
@@ -102,7 +102,7 @@
                      <VBox.margin>
                         <Insets left="5.0" right="20.0" />
                      </VBox.margin></TextField>
-                  <Label layoutX="10.0" layoutY="178.0" text="TRANSMISION">
+                  <Label layoutX="10.0" layoutY="178.0" text="Transimisión">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
@@ -110,7 +110,7 @@
                      <VBox.margin>
                         <Insets left="5.0" right="20.0" />
                      </VBox.margin></TextField>
-                  <Label layoutX="10.0" layoutY="220.0" text="PRECIO">
+                  <Label layoutX="10.0" layoutY="220.0" text="Precio">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
@@ -118,7 +118,7 @@
                      <VBox.margin>
                         <Insets left="5.0" right="20.0" />
                      </VBox.margin></TextField>
-                  <Label layoutX="10.0" layoutY="262.0" text="PROVINICA">
+                  <Label layoutX="10.0" layoutY="262.0" text="Provincia">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
@@ -126,7 +126,7 @@
                      <VBox.margin>
                         <Insets left="5.0" right="20.0" />
                      </VBox.margin></TextField>
-                  <Label fx:id="T" layoutX="10.0" layoutY="304.0" text="DESCRIPCION">
+                  <Label fx:id="T" layoutX="10.0" layoutY="304.0" text="Descripción">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>

@@ -7,153 +7,179 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto1p.CreacionController">
-   <left>
-      <VBox alignment="CENTER" prefHeight="384.0" prefWidth="139.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox alignment="CENTER" prefHeight="384.0" prefWidth="151.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label text="Fecha" />
-                  <TextField fx:id="textoFecha" alignment="CENTER" prefHeight="19.0" prefWidth="43.0">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin></TextField>
-                  <Label text="Marca" />
-                  <TextField fx:id="textoMarca" alignment="CENTER">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin></TextField>
-                  <Label text="Modelo" />
-                  <TextField fx:id="textoModelo" alignment="CENTER">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin></TextField>
-                  <Label text="Kilometraje" />
-                  <TextField fx:id="textoKilometraje" alignment="CENTER">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin></TextField>
-                  <Label text="Motor" />
-                  <TextField fx:id="textoMotor" alignment="CENTER">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin></TextField>
-                  <Label text="Transmisión" />
-                  <TextField fx:id="textoTransmision" alignment="CENTER">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin></TextField>
-                  <Label text="Precio" />
-                  <TextField fx:id="textoPrecio" alignment="CENTER">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin></TextField>
-                  <Label text="Provincia/ Ubicación" />
-                  <TextField fx:id="textoProvinicia" alignment="CENTER">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin></TextField>
-                  <Label text="Descripción" />
-                  <TextField fx:id="textoDesc" alignment="CENTER">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin></TextField>
-               </children>
-               <VBox.margin>
-                  <Insets right="100.0" />
-               </VBox.margin>
-            </VBox>
-         </children>
-      </VBox>
-   </left>
-   <right>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-         <children>
-            <VBox prefHeight="200.0" prefWidth="117.0">
-               <children>
-                  <Label text="agrega tu imagen">
-                     <VBox.margin>
-                        <Insets left="5.0" top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Italic" size="12.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="botonImagen" mnemonicParsing="false" onAction="#subirImagen" style="-fx-background-color: #03C446;" text="SUBIR" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="11.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" top="5.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
-            <Button fx:id="botonCrear" mnemonicParsing="false" onAction="#crearBoton" style="-fx-background-color: #92C7DE;" text="CREAR" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
-   </right>
+
+<BorderPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto1p.CreacionController">
    <center>
-      <ScrollPane fx:id="Scroll2" prefHeight="323.0" prefWidth="370.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-         <content>
-            <VBox fx:id="vpane" alignment="CENTER" prefHeight="321.0" prefWidth="285.0" style="-fx-background-color: white;" />
-         </content>
-      </ScrollPane>
+      <Pane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="77.0">
+               <children>
+                  <HBox prefHeight="59.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="botonRegreso" mnemonicParsing="false" onAction="#regresar" style="-fx-background-color: white;" text="Regresar" underline="true">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Nombre">
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="ID        ">
+                           <HBox.margin>
+                              <Insets left="190.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="textoId">
+                           <HBox.margin>
+                              <Insets left="80.0" right="80.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField fx:id="TextoNombre">
+                           <HBox.margin>
+                              <Insets left="80.0" right="80.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" layoutY="91.0" prefHeight="384.0" prefWidth="687.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="384.0" prefWidth="175.0" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Fecha" />
+                        <TextField fx:id="textoFecha" alignment="CENTER" prefHeight="19.0" prefWidth="43.0">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Marca" />
+                        <TextField fx:id="textoMarca" alignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Modelo" />
+                        <TextField fx:id="textoModelo" alignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Kilometraje" />
+                        <TextField fx:id="textoKilometraje" alignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Motor" />
+                        <TextField fx:id="textoMotor" alignment="CENTER" maxWidth="1.7976931348623157E308">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Transmisión" />
+                        <TextField fx:id="textoTransmision" alignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Precio" />
+                        <TextField fx:id="textoPrecio" alignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Provincia/ Ubicación" />
+                        <TextField fx:id="textoProvinicia" alignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Descripción" />
+                        <TextField fx:id="textoDesc" alignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <ScrollPane fx:id="Scroll2" prefHeight="321.0" prefWidth="369.0" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+                     <content>
+                        <VBox fx:id="vpane" alignment="CENTER" centerShape="false" prefHeight="384.0" prefWidth="383.0" style="-fx-background-color: white;" />
+                     </content>
+                  </ScrollPane>
+                  <VBox alignment="CENTER" prefHeight="384.0" prefWidth="207.0" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="agrega tu imagen">
+                           <VBox.margin>
+                              <Insets left="5.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="botonImagen" mnemonicParsing="false" onAction="#subirImagen" style="-fx-background-color: #03C446;" text="SUBIR" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="botonCrear" mnemonicParsing="false" onAction="#crearBoton" style="-fx-background-color: #92C7DE; -fx-border-color: grey;" text="CREAR" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="100.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Pane>
    </center>
    <top>
-      <VBox prefHeight="77.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox prefHeight="59.0" prefWidth="600.0">
-               <children>
-                  <Button fx:id="botonRegreso" mnemonicParsing="false" onAction="#regresar" style="-fx-background-color: white;" text="Regresar" underline="true">
-                     <font>
-                        <Font name="System Italic" size="12.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="600.0">
-               <children>
-                  <Label text="Nombre">
-                     <HBox.margin>
-                        <Insets right="100.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label text="ID        ">
-                     <HBox.margin>
-                        <Insets left="190.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField fx:id="textoId">
-                     <HBox.margin>
-                        <Insets left="80.0" right="80.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <TextField fx:id="TextoNombre">
-                     <HBox.margin>
-                        <Insets left="80.0" right="80.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+      <HBox prefHeight="43.0" prefWidth="1050.0" BorderPane.alignment="CENTER" />
    </top>
+   <left>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <HBox prefHeight="495.0" prefWidth="154.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <HBox prefHeight="59.0" prefWidth="1050.0" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>
