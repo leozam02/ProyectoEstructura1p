@@ -3,6 +3,7 @@ package ec.edu.espol.proyecto1p;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -16,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class PrimaryController {
@@ -30,7 +30,7 @@ public class PrimaryController {
     private VBox vboxPrincipal;
     
     
-    private ArrayList<MedioDeTransporte> Lista;
+    private List<MedioDeTransporte> Lista;
     
     
     
@@ -85,7 +85,6 @@ public class PrimaryController {
             stage.setTitle(titulo);
             stage.setScene(s);
             stage.initModality(Modality.APPLICATION_MODAL);
-
             stage.show();
             
         }
