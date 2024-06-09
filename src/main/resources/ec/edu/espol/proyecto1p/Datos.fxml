@@ -41,8 +41,8 @@
    <right>
       <VBox alignment="CENTER" prefHeight="205.0" prefWidth="85.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonPrevCar" mnemonicParsing="false" onAction="#anteriorVehiculo" text="&lt;--" />
-            <Button fx:id="buttonNextCar" mnemonicParsing="false" onAction="#siguienteVehiculo" text="--&gt;" />
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="--&gt;" />
             <Button fx:id="derecha" mnemonicParsing="false" onAction="#clickDerecha" text="--&gt;">
                <font>
                   <Font name="Bookshelf Symbol 7" size="17.0" />

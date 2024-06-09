@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * JavaFX App
@@ -44,7 +43,7 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
         
-        List<MedioDeTransporte> l=Lector.leerArchivo("Datos.csv");
+        ArrayList<MedioDeTransporte> l=Lector.leerArchivo("Datos.csv");
        /*for(MedioDeTransporte g: l){
            System.out.print(g.toString());
            System.out.println("\n");

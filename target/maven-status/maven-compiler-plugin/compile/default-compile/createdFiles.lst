@@ -3,7 +3,6 @@ ec\edu\espol\proyecto1p\EditorController.class
 ec\edu\espol\proyecto1p\SecondaryController.class
 ec\edu\espol\proyecto1p\CircularDoublyLinkedList$Node.class
 ec\edu\espol\proyecto1p\MenuController.class
-ec\edu\espol\proyecto1p\DoubleLinkedList$DoubleLinkedListIterator.class
 ec\edu\espol\proyecto1p\CreacionController.class
 ec\edu\espol\proyecto1p\ImageFunction.class
 ec\edu\espol\proyecto1p\DoubleCircularList.class
@@ -19,7 +18,6 @@ ec\edu\espol\proyecto1p\UserManager.class
 ec\edu\espol\proyecto1p\DoubleLinkedList.class
 ec\edu\espol\proyecto1p\MedioDeTransporte.class
 ec\edu\espol\proyecto1p\MediosTransporteManager.class
-ec\edu\espol\proyecto1p\DoublyLinkedList.class
 ec\edu\espol\proyecto1p\PrimaryController.class
 ec\edu\espol\proyecto1p\Usuario.class
 ec\edu\espol\proyecto1p\UsuarioController.class

@@ -56,7 +56,7 @@
                </VBox.margin></ComboBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="bottonFav" mnemonicParsing="false" onAction="#favoritos" style="-fx-background-color: #26268E;" text="FAVORITOS" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#favoritos" style="-fx-background-color: #26268E;" text="FAVORITOS" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="40.0" top="20.0" />
                      </VBox.margin>

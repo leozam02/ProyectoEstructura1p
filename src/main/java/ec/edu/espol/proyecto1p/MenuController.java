@@ -43,7 +43,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private FlowPane vpane;
-    public static DoublyLinkedList<MedioDeTransporte> Lista;
+    private ArrayList<MedioDeTransporte> Lista;
     ArrayList<String> nameImages=ImageFunction.cargarImagenes("img");
     @FXML
     private ScrollPane Scroll;
@@ -80,7 +80,7 @@ public class MenuController implements Initializable {
         comboOrden.getItems().addAll("Ordenar por nombre de marca", "Ordenar por precio de mayor a menor");
         vpane.setAlignment(Pos.CENTER);
         Scroll.setFitToWidth(true);
-        Lista = Lector.leerArchivo("Datos.csv");
+        Lista=Lector.leerArchivo("Datos.csv");
         CargaInicial(Lista);
     }
 
@@ -133,7 +133,7 @@ public class MenuController implements Initializable {
     }
     
     
-     private ArrayList<MedioDeTransporte> filtrarMediosTransporte(List<MedioDeTransporte> lista) {
+     private ArrayList<MedioDeTransporte> filtrarMediosTransporte(ArrayList<MedioDeTransporte> lista) {
         ArrayList<MedioDeTransporte> resultados = new ArrayList<>();
 
         for (MedioDeTransporte transporte : lista) {
@@ -290,8 +290,8 @@ public class MenuController implements Initializable {
         if(!validarKilometros())
             return;
         
-        List<MedioDeTransporte> resultados = filtrarMediosTransporte(Lista);
-        CargaInicial(resultados);
+        ArrayList<MedioDeTransporte> resultados = filtrarMediosTransporte(Lista);
+         CargaInicial(resultados);
 
     }
     

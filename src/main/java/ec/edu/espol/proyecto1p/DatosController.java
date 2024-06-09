@@ -45,13 +45,12 @@ public class DatosController implements Initializable {
     
     
     private MedioDeTransporte selected;
-    
     @FXML
     private HBox hbox;
     @FXML
     private Button botonFav;
     
-    private List<MedioDeTransporte> vehiculos;
+    private ArrayList<MedioDeTransporte> vehiculos;
     
     /**
      * Initializes the controller class.
@@ -118,34 +117,6 @@ public class DatosController implements Initializable {
         
     }
 
-    
-    @FXML
-    private void anteriorVehiculo(ActionEvent event) {
-        MenuController.Lista.moveToPrev();
-        this.selected = MenuController.Lista.getHead().data;
-        if (this.selected!=null) {
-            try {
-                mostrarImagen();
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-    
-    @FXML
-    private void siguienteVehiculo(ActionEvent event) {
-        MenuController.Lista.moveToNext();
-        this.selected = MenuController.Lista.getHead().data;
-        if (this.selected!=null) {
-            try {
-                mostrarImagen();
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-    
-    
     @FXML
     private void clickDerecha(ActionEvent event) {
         selected.getFotos().moveToNext();
