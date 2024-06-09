@@ -34,6 +34,16 @@
    <right>
       <VBox alignment="CENTER" prefHeight="205.0" prefWidth="224.0" BorderPane.alignment="CENTER">
          <children>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="anteriorVehiculo" mnemonicParsing="false" onAction="#anteriorVehiculo" style="-fx-background-color: white;" text="Anterior" underline="true">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="siguienteVehiculo" mnemonicParsing="false" onAction="#siguienteVehiculo" style="-fx-background-color: white;" text="Siguiente" underline="true" />
+               </children>
+            </HBox>
             <Button fx:id="botonFav" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#favorito" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #26268E;" text="Añadir a favoritos" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />

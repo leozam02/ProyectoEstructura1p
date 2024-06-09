@@ -40,6 +40,10 @@ public class DatosController implements Initializable {
     private Button derecha;
     @FXML
     private Button izquierda;
+    @FXML
+    private Button siguienteVehiculo;
+    @FXML
+    private Button anteriorVehiculo;
 
     private int fotoActualIndex = 0; 
     
