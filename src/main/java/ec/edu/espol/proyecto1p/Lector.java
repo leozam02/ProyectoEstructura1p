@@ -16,12 +16,10 @@ import java.util.List;
  * @author leoza
  */
 public class Lector {
-     public static ArrayList<MedioDeTransporte> leerArchivo(String nomfile){
+     public static DoublyLinkedList<MedioDeTransporte> leerArchivo(String nomfile){
         
-        ArrayList<MedioDeTransporte> r;
-        r = new ArrayList<>();
-        try(BufferedReader bf =  new BufferedReader(new FileReader(nomfile));)
-        {
+        DoubleLinkedList<MedioDeTransporte> r = new DoubleLinkedList<>();
+        try(BufferedReader bf =  new BufferedReader(new FileReader(nomfile));) {
             String line;
             bf.readLine();
             

@@ -3,6 +3,7 @@ package ec.edu.espol.proyecto1p;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -29,7 +30,7 @@ public class PrimaryController {
     private VBox vboxPrincipal;
     
     
-    private ArrayList<MedioDeTransporte> Lista;
+    private List<MedioDeTransporte> Lista;
     
     
     
