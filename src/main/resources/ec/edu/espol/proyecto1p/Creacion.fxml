@@ -11,16 +11,13 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto1p.CreacionController">
-   <bottom>
-      <ScrollPane fx:id="Scroll" prefHeight="104.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
-   </bottom>
    <left>
-      <VBox alignment="CENTER" prefHeight="263.0" prefWidth="114.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="384.0" prefWidth="139.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="384.0" prefWidth="197.0" style="-fx-background-color: white;">
+            <VBox alignment="CENTER" prefHeight="384.0" prefWidth="151.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
                <children>
                   <Label text="Fecha" />
-                  <TextField fx:id="textoFecha" alignment="CENTER" prefHeight="10.0" prefWidth="447.0">
+                  <TextField fx:id="textoFecha" alignment="CENTER" prefHeight="19.0" prefWidth="43.0">
                      <VBox.margin>
                         <Insets left="40.0" right="40.0" />
                      </VBox.margin></TextField>
@@ -65,6 +62,9 @@
                         <Insets left="40.0" right="40.0" />
                      </VBox.margin></TextField>
                </children>
+               <VBox.margin>
+                  <Insets right="100.0" />
+               </VBox.margin>
             </VBox>
          </children>
       </VBox>
@@ -72,7 +72,7 @@
    <right>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="200.0" prefWidth="117.0">
                <children>
                   <Label text="agrega tu imagen">
                      <VBox.margin>
@@ -92,7 +92,6 @@
                   </Button>
                </children>
             </VBox>
-            <VBox prefHeight="252.0" prefWidth="100.0" />
             <Button fx:id="botonCrear" mnemonicParsing="false" onAction="#crearBoton" style="-fx-background-color: #92C7DE;" text="CREAR" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -105,9 +104,9 @@
       </VBox>
    </right>
    <center>
-      <ScrollPane fx:id="Scroll2" prefHeight="219.0" prefWidth="317.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="Scroll2" prefHeight="323.0" prefWidth="370.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="vpane" alignment="CENTER" prefHeight="264.0" prefWidth="303.0" style="-fx-background-color: white;" />
+            <VBox fx:id="vpane" alignment="CENTER" prefHeight="321.0" prefWidth="285.0" style="-fx-background-color: white;" />
          </content>
       </ScrollPane>
    </center>
@@ -118,8 +117,11 @@
                <children>
                   <Button fx:id="botonRegreso" mnemonicParsing="false" onAction="#regresar" style="-fx-background-color: white;" text="Regresar" underline="true">
                      <font>
-                        <Font name="System Italic" size="11.0" />
+                        <Font name="System Italic" size="12.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
                   </Button>
                </children>
             </HBox>

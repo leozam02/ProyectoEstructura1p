@@ -34,8 +34,8 @@ public class DatosController implements Initializable {
     private Button botonregreso;
     @FXML
     private VBox vpaneNombre;
-    @FXML
-    private VBox vpaneDesc;
+    /*@FXML
+    private VBox vpaneDesc;*/
     @FXML
     private Button derecha;
     @FXML

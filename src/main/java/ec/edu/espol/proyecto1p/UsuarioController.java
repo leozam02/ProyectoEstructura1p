@@ -29,16 +29,16 @@ import javafx.stage.Stage;
 public class UsuarioController implements Initializable {
     
 
-    @FXML
-    private HBox hbox;
+    /*@FXML
+    private HBox hbox;*/
     @FXML
     private TextField nameUsuario;
     @FXML
     private TextField contrasenaUsuario;
-    @FXML
+    /*@FXML
     private VBox vbox1;
     @FXML
-    private VBox vbox2;
+    private VBox vbox2;*/
     @FXML
     private Button boton;
     ArrayList<Usuario> Lista;

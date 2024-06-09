@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class PrimaryController {
@@ -84,6 +85,7 @@ public class PrimaryController {
             stage.setTitle(titulo);
             stage.setScene(s);
             stage.initModality(Modality.APPLICATION_MODAL);
+
             stage.show();
             
         }
