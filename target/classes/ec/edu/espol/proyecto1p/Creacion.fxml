@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto1p.CreacionController">
    <center>
       <Pane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
@@ -174,7 +173,7 @@
       <HBox prefHeight="43.0" prefWidth="1050.0" BorderPane.alignment="CENTER" />
    </top>
    <left>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="495.0" prefWidth="135.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
       <HBox prefHeight="495.0" prefWidth="154.0" BorderPane.alignment="CENTER" />

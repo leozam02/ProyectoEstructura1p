@@ -4,10 +4,14 @@
  */
 package ec.edu.espol.proyecto1p;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,11 +23,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -68,6 +74,10 @@ public class CambiosController implements Initializable {
     
     
     private ArrayList<MedioDeTransporte> Lista;
+    @FXML
+    private Button botonImagen;
+    @FXML
+    private ScrollPane Scroll;
 
     /**
      * Initializes the controller class.
@@ -133,8 +143,8 @@ private boolean camposLlenos() {
                 });
                
                 
-                imv.setFitWidth(300);
-                imv.setFitHeight(300);
+                imv.setFitWidth(200);
+                imv.setFitHeight(200);
 
                     // labels para el nombre y el costo
                 Label nameLabel = new Label("Nombre: " + t1.getNombre());
@@ -277,6 +287,74 @@ private boolean camposLlenos() {
         
         Lector.eliminarLineaPorID("Datos.csv", t1.getId());
         //Se elimina el vehiculo cuando acceda a esta interfaz 
+    }
+
+    @FXML
+    private void subirImagen(ActionEvent event) {
+        vpane.setAlignment(Pos.CENTER);
+        Scroll.setFitToWidth(true);
+       //Validar que todos los campos estén llenos
+        /*if (!camposLlenos()) {
+            // Mostrar un mensaje de error
+            System.out.println("Por favor, complete todos los campos antes de subir una imagen.");
+            return;
+        }*/
+            //FileChooser para agregar la imagen
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Select Image");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg"));
+
+            Stage stage = (Stage) vpane.getScene().getWindow();
+            List<File> files = fileChooser.showOpenMultipleDialog(stage);
+
+            if (files != null) {
+                for (File file : files) {
+                    if (file.getName().toLowerCase().endsWith(".jpg")) {
+                        try {
+                            // Obtener la ruta de la carpeta "img"
+                            String imgFolderPath = System.getProperty("user.dir") + File.separator + "img";
+
+                            // Crear la carpeta "img" si no existe
+                            File imgFolder = new File(imgFolderPath);
+                            if (!imgFolder.exists()) {
+                                imgFolder.mkdir();
+                            }
+
+                            // Generar el nuevo nombre del archivo
+                            String newFileName = t1.getId() + "-" + System.currentTimeMillis() + ".jpg";
+
+                            // Crear un nuevo archivo en la carpeta "img" con el nuevo nombre
+                            File imgFile = new File(imgFolderPath, newFileName);
+                            if (imgFile.createNewFile()) {
+                                // Copiar la imagen seleccionada al archivo creado
+                                Files.copy(file.toPath(), imgFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+                                // Mostrar la imagen en el VBox
+                                Image image = new Image(imgFile.toURI().toString());
+                                ImageView imageView = new ImageView(image);
+                                imageView.setFitWidth(200);
+                                imageView.setFitHeight(200);
+                                imageView.setPreserveRatio(true);
+                                vpane.getChildren().add(imageView);
+                            } else {
+                                System.out.println("No se pudo crear el archivo: " + imgFile.getName());
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        System.out.println("El archivo " + file.getName() + " no es un archivo .jpg");
+                    }
+                }
+            } else {
+                System.out.println("No se seleccionaron archivos.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
     }
 
 }

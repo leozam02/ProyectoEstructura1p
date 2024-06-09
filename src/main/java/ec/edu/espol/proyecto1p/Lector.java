@@ -10,6 +10,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -112,6 +114,64 @@ public class Lector {
         }
     }
 
+    public static Set<String> getCategorias(List<MedioDeTransporte> p) {
+          Set<String> marcasSet = new TreeSet<>();
+        for (MedioDeTransporte m : p) {
+            marcasSet.add(m.getMarca());
+        }
+        return marcasSet;
+    }
     
+    
+     public static Set<String> getTipos(List<MedioDeTransporte> p) {
+        Set<String> marcasSet = new TreeSet<>();
+        for (MedioDeTransporte m : p) {
+            marcasSet.add(m.getModelo());
+            
+        }
+        return marcasSet;
+    }
+     
+        public static Set<String> getProvinicia(List<MedioDeTransporte> p) {
+        Set<String> marcasSet = new TreeSet<>();
+        for (MedioDeTransporte m : p) {
+            marcasSet.add(m.getProvincia());
+            
+        }
+        return marcasSet;
+    }
+     
+     
+         public static DoublyLinkedList<MedioDeTransporte> filtrarPorMarca(DoublyLinkedList<MedioDeTransporte>lista, String marca) {
+        DoubleLinkedList<MedioDeTransporte> filtrados = new DoubleLinkedList<>();
+        for (MedioDeTransporte transporte : lista) {
+            if (transporte.getMarca().equalsIgnoreCase(marca)) {
+                filtrados.add(transporte);
+            }
+        }
+        return filtrados;
+    }
+     
+     
+    public static DoublyLinkedList<MedioDeTransporte> filtrarPorTipo(DoublyLinkedList<MedioDeTransporte> lista, String tipo) {
+        DoubleLinkedList<MedioDeTransporte> r = new DoubleLinkedList<>();
+        for (MedioDeTransporte transporte : lista) {
+            if (transporte.getModelo().equalsIgnoreCase(tipo)) {
+                r.add(transporte);
+            }
+        }
+        return r;
+    }
+
+    
+        public static DoublyLinkedList<MedioDeTransporte> filtrarPorProvincia(DoublyLinkedList<MedioDeTransporte> lista, String provincia) {
+        DoubleLinkedList<MedioDeTransporte> r = new DoubleLinkedList<>();
+        for (MedioDeTransporte transporte : lista) {
+            if (transporte.getProvincia().equalsIgnoreCase(provincia)) {
+                r.add(transporte);
+            }
+        }
+        return r;
+    }
 
 }

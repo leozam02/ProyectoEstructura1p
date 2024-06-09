@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +49,7 @@ public class MenuController implements Initializable {
     @FXML
     private ScrollPane Scroll;
     @FXML
-    private ComboBox<?> ComboModelos;
+    private ComboBox<String> ComboModelos;
     @FXML
     private TextField TextoPrecioInicial;
     @FXML
@@ -68,8 +69,9 @@ public class MenuController implements Initializable {
     @FXML
     private Button botonEditar;
     @FXML
-    private Button bottonFav;
-    
+    private ComboBox<String> CombosProvincia;
+    @FXML
+    private ComboBox<String> CombosTipos;
     
     /**
      * Initializes the controller class.
@@ -82,6 +84,18 @@ public class MenuController implements Initializable {
         Scroll.setFitToWidth(true);
         Lista = Lector.leerArchivo("Datos.csv");
         CargaInicial(Lista);
+        
+        Set<String> marcas=Lector.getCategorias(Lista);
+        ComboModelos.getItems().addAll(marcas);
+        
+          
+        Set<String> modelos=Lector.getTipos(Lista);
+        CombosTipos.getItems().addAll(modelos);
+        
+        
+                  
+        Set<String> provincias=Lector.getProvinicia(Lista);
+        CombosProvincia.getItems().addAll(provincias);
     }
 
 
@@ -260,6 +274,9 @@ public class MenuController implements Initializable {
 
     @FXML
     private void ModelosElection(ActionEvent event) {
+           String m=ComboModelos.getValue();
+        DoublyLinkedList<MedioDeTransporte> filtro=Lector.filtrarPorMarca(Lista, m);
+        CargaInicial(filtro);
     }
 
     @FXML
@@ -339,7 +356,7 @@ public class MenuController implements Initializable {
     private void crear(ActionEvent event) {
              try {
             FXMLLoader fxml = App.loadFXML("Creacion");
-            Scene sc = new Scene(fxml.load(),600,600);
+            Scene sc = new Scene(fxml.load(),750,600);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();
@@ -370,6 +387,23 @@ public class MenuController implements Initializable {
             Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
             a.show();
         }        
+    }
+
+    @FXML
+    private void ProvinciaElection(ActionEvent event) {
+            String m=CombosProvincia.getValue();
+        DoublyLinkedList<MedioDeTransporte> filtro=Lector.filtrarPorProvincia( Lista, m);
+        CargaInicial(filtro);
+        
+    }
+
+    @FXML
+    private void TypeElection(ActionEvent event) {
+        
+               String m=CombosTipos.getValue();
+        DoublyLinkedList<MedioDeTransporte> filtro=Lector.filtrarPorTipo( Lista, m);
+        CargaInicial(filtro);
+        
     }
     
 }
