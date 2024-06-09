@@ -76,7 +76,7 @@ public class Lector {
     
     }
     
-    public static boolean igualdad(ArrayList<MedioDeTransporte> t, MedioDeTransporte k){
+    public static boolean igualdad(DoublyLinkedList<MedioDeTransporte> t, MedioDeTransporte k){
         for(MedioDeTransporte m: t){
             if(m.getId().equals(k.getId()))
                 return true;
@@ -114,7 +114,7 @@ public class Lector {
         }
     }
 
-    public static Set<String> getCategorias(List<MedioDeTransporte> p) {
+    public static Set<String> getCategorias(DoublyLinkedList<MedioDeTransporte> p) {
           Set<String> marcasSet = new TreeSet<>();
         for (MedioDeTransporte m : p) {
             marcasSet.add(m.getMarca());
@@ -123,7 +123,7 @@ public class Lector {
     }
     
     
-     public static Set<String> getTipos(List<MedioDeTransporte> p) {
+     public static Set<String> getTipos(DoublyLinkedList<MedioDeTransporte> p) {
         Set<String> marcasSet = new TreeSet<>();
         for (MedioDeTransporte m : p) {
             marcasSet.add(m.getModelo());
@@ -132,7 +132,7 @@ public class Lector {
         return marcasSet;
     }
      
-        public static Set<String> getProvinicia(List<MedioDeTransporte> p) {
+        public static Set<String> getProvinicia(DoublyLinkedList<MedioDeTransporte> p) {
         Set<String> marcasSet = new TreeSet<>();
         for (MedioDeTransporte m : p) {
             marcasSet.add(m.getProvincia());

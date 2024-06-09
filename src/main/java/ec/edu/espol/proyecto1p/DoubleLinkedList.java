@@ -115,6 +115,8 @@ public class DoubleLinkedList<E> implements List<E>, DoublyLinkedList<E> {
 //        System.out.println();
 //    }
 
+    
+    
     @Override
     public int size() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -122,7 +124,7 @@ public class DoubleLinkedList<E> implements List<E>, DoublyLinkedList<E> {
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return head==null || head.data==null;
     }
 
     @Override
@@ -144,7 +146,60 @@ public class DoubleLinkedList<E> implements List<E>, DoublyLinkedList<E> {
 
     @Override
     public boolean remove(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        if (head == null) {
+            return false;
+        }
+
+        Nodo<E> current = head;
+
+        while (current != null && !current.data.equals(o)) {
+            current = current.next;
+        }
+
+        if (current == null) {
+            return false;
+        }
+
+        if (current == head) {
+            head = current.next;
+            if (head != null) {
+                head.prev = null;
+            }
+        } else {
+            if (current.prev != null) {
+                current.prev.next = current.next;
+            }
+            if (current.next != null) {
+                current.next.prev = current.prev;
+            }
+        }
+
+        return true;
+        
+            /*if (head == null) {
+        return false; // La lista está vacía, no hay nada que eliminar.
+    }
+
+    Nodo<E> current = head;
+    while (current != null) {
+        if ((o == null && current.data == null) || (o != null && o.equals(current.data))) {
+            if (current.prev != null) {
+                current.prev.next = current.next;
+            } else {
+                head = current.next; // Si el nodo a eliminar es el primero, actualizamos head.
+            }
+
+            if (current.next != null) {
+                current.next.prev = current.prev;
+            }
+
+            return true; // Nodo encontrado y eliminado.
+        }
+        current = current.next;
+    }
+    return false;*/
+    
     }
 
     @Override
@@ -179,7 +234,14 @@ public class DoubleLinkedList<E> implements List<E>, DoublyLinkedList<E> {
 
     @Override
     public E get(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         if (index < 0 ) {
+            throw new IndexOutOfBoundsException("Índice fuera de los límites: " + index);
+        }
+        Nodo<E> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
     }
 
     @Override

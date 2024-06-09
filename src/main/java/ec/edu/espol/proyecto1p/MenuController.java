@@ -72,6 +72,8 @@ public class MenuController implements Initializable {
     private ComboBox<String> CombosProvincia;
     @FXML
     private ComboBox<String> CombosTipos;
+    @FXML
+    private Button BotonDefaulr;
     
     /**
      * Initializes the controller class.
@@ -79,7 +81,7 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        comboOrden.getItems().addAll("Ordenar por nombre de marca", "Ordenar por precio de mayor a menor");
+        comboOrden.getItems().addAll("Ordenar por"+"\n"+" nombre de marca", "Ordenar por precio "+"\n"+"de mayor a menor");
         vpane.setAlignment(Pos.CENTER);
         Scroll.setFitToWidth(true);
         Lista = Lector.leerArchivo("Datos.csv");
@@ -315,7 +317,15 @@ public class MenuController implements Initializable {
     
     @FXML
     private void favoritos(ActionEvent event) {
+        if(!(UserManager.getUsuario().getFavoritos().isEmpty())){
+        Lista=UserManager.getUsuario().getFavoritos();
         CargaInicial(UserManager.getUsuario().getFavoritos());
+        }
+        else{
+           Alert a = new Alert(Alert.AlertType.ERROR,"No tiene autos Favortos. Seleccione alguno");
+            a.show();
+        }
+        
     }
     
     
@@ -327,7 +337,7 @@ public class MenuController implements Initializable {
 
         List<MedioDeTransporte> listaOrdenada;
 
-        if ("Ordenar por nombre de marca".equals(seleccion)) {
+        if (("Ordenar por"+"\n"+" nombre de marca").equals(seleccion)) {
             Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t1.getMarca().compareTo(t2.getMarca()));
             listaOrdenada = new ArrayList<>();
             System.out.println("Valor seleccionado: " + seleccion);
@@ -338,8 +348,8 @@ public class MenuController implements Initializable {
             }
         } 
 
-        else if ("Ordenar por precio de mayor a menor".equals(seleccion)) {
-            Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t1.getPrecio()- t2.getPrecio());
+        else if (("Ordenar por precio "+"\n"+"de mayor a menor").equals(seleccion)) {
+            Queue<MedioDeTransporte> sortedTransportes = new PriorityQueue<>((t1, t2) -> t2.getPrecio()- t1.getPrecio());
 
             listaOrdenada = new ArrayList<>();
             System.out.println("Valor seleccionado: " + seleccion);
@@ -410,6 +420,17 @@ public class MenuController implements Initializable {
                String m=CombosTipos.getValue();
         DoublyLinkedList<MedioDeTransporte> filtro=Lector.filtrarPorTipo( Lista, m);
         CargaInicial(filtro);
+        
+    }
+
+    @FXML
+    private void Default(ActionEvent event) {
+        
+        vpane.setAlignment(Pos.CENTER);
+        Scroll.setFitToWidth(true);
+        Lista = Lector.leerArchivo("Datos.csv");
+        CargaInicial(Lista);
+        
         
     }
     

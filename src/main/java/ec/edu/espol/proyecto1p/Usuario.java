@@ -14,21 +14,21 @@ public class Usuario  {
     private String name;
     private String password;
     private ArrayList<MedioDeTransporte> autos;
-    private ArrayList<MedioDeTransporte> favoritos;
+    private DoublyLinkedList<MedioDeTransporte> favoritos;
     private ArrayList<String> ids; 
 
-    public Usuario(String name, String password, ArrayList<MedioDeTransporte> autos,ArrayList<MedioDeTransporte> favoritos ) {
+    public Usuario(String name, String password, ArrayList<MedioDeTransporte> autos,DoublyLinkedList<MedioDeTransporte> favoritos ) {
         this.name = name;
         this.password = password;
         this.autos = autos;
         this.favoritos=favoritos;
     }
 
-    public ArrayList<MedioDeTransporte> getFavoritos() {
+    public DoublyLinkedList<MedioDeTransporte> getFavoritos() {
         return favoritos;
     }
 
-    public void setFavoritos(ArrayList<MedioDeTransporte> favoritos) {
+    public void setFavoritos(DoublyLinkedList<MedioDeTransporte> favoritos) {
         this.favoritos = favoritos;
     }
 

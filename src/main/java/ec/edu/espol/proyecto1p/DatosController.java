@@ -38,8 +38,6 @@ public class DatosController implements Initializable {
     @FXML
     private VBox vpaneNombre;
     @FXML
-    private VBox vpaneDesc;
-    @FXML
     private Button derecha;
     @FXML
     private Button izquierda;
@@ -57,10 +55,10 @@ public class DatosController implements Initializable {
     private HBox hbox;
     @FXML
     private Button botonFav;
-    @FXML
-    private Label infPrincipal;
     
     private List<MedioDeTransporte> vehiculos;
+    @FXML
+    private Button botonDesfav;
     
     /**
      * Initializes the controller class.
@@ -243,6 +241,32 @@ public class DatosController implements Initializable {
         
         vpaneNombre.getChildren().add(vbox);
               
+    }
+
+    @FXML
+    private void desFavorite(ActionEvent event) {
+         if((Lector.igualdad(UserManager.getUsuario().getFavoritos(),selected))){
+        UserManager.getUsuario().getFavoritos().remove(selected);
+                    try {
+            FXMLLoader fxml = App.loadFXML("Menu");
+            Scene sc = new Scene(fxml.load(),600,600);
+            Stage st = new Stage();
+            st.setScene(sc);
+            st.show();
+            
+            Button b = (Button)event.getSource();
+            Stage s = (Stage) b.getScene().getWindow();
+            s.close();
+        } catch (IOException ex) {
+            Alert a = new Alert(Alert.AlertType.ERROR,"No se pudo abrir el fxml");
+            a.show();
+        }
+         }
+         
+         else{
+            showAlert("NO POSSIBLE ACTION","VERIFIQUE QUE EL VEHICULO SI ES FAVORITO"); 
+         }
+        
     }
 
 }

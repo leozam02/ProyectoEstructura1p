@@ -61,9 +61,11 @@ public class UsuarioController implements Initializable {
             showAlert("ERROR DE BUSQUEDA", "Porfavor llene los dos campos de texto");
         }
         else{
+            
+            DoubleLinkedList<MedioDeTransporte> f = new DoubleLinkedList<>();
             String username = nameUsuario.getText();
-            String password = console.readPassword(contrasenaUsuario.getText());
-            Usuario u = new Usuario(username, password, new ArrayList<>(),new ArrayList<>());
+            String password = (contrasenaUsuario.getText());
+            Usuario u = new Usuario(username, password, new ArrayList<>(),f);
             //UserManager.escribirUsuarioCSV(u, "Usuarios.csv");
             UserManager.setUsuario(u);
             abrirVentana("AUTOS");
