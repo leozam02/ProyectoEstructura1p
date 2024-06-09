@@ -68,14 +68,14 @@
    <center>
       <ScrollPane fx:id="Scroll" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="vpane" alignment="CENTER" prefHeight="237.0" prefWidth="322.0" style="-fx-background-color: white;" />
+            <VBox fx:id="vpane" alignment="CENTER" prefHeight="457.0" prefWidth="322.0" style="-fx-background-color: white;" />
          </content>
       </ScrollPane>
    </center>
    <left>
-      <ScrollPane prefHeight="363.0" prefWidth="176.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="228.0" prefWidth="176.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <content>
-            <VBox prefHeight="221.0" prefWidth="175.0" style="-fx-background-color: white;">
+            <VBox prefHeight="384.0" prefWidth="160.0" style="-fx-background-color: white;">
                <children>
                   <Label text="Fecha">
                      <VBox.margin>

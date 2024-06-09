@@ -45,8 +45,6 @@ public class CreacionController implements Initializable {
     @FXML
     private TextField textoId;
     @FXML
-    private ScrollPane Scroll;
-    @FXML
     private TextField textoFecha;
     @FXML
     private TextField textoMarca;
@@ -153,8 +151,8 @@ public class CreacionController implements Initializable {
                                 // Mostrar la imagen en el VBox
                                 Image image = new Image(imgFile.toURI().toString());
                                 ImageView imageView = new ImageView(image);
-                                imageView.setFitWidth(400);
-                                imageView.setFitHeight(400);
+                                imageView.setFitWidth(300);
+                                imageView.setFitHeight(300);
                                 imageView.setPreserveRatio(true);
                                 vpane.getChildren().add(imageView);
                             } else {

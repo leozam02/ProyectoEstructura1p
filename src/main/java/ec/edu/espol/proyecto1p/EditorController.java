@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -50,6 +52,8 @@ public class EditorController implements Initializable {
     private Button botonRegreso;
     @FXML
     private ScrollPane Scroll;
+    @FXML
+    private HBox haneTitle;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,8 +62,38 @@ public class EditorController implements Initializable {
         CargaInicial(Lista);
         vpane.setAlignment(Pos.CENTER);
         Scroll.setFitToWidth(true);
+        
+        HiloFlashHBox hilo = new HiloFlashHBox(haneTitle);
+        hilo.setDaemon(true);
+        hilo.start();
     }
     
+    
+    class HiloFlashHBox extends Thread {
+    private HBox hbox;
+
+    HiloFlashHBox(HBox hbox) {
+        this.hbox = hbox;
+    }
+
+    @Override
+    public void run() {
+        boolean visible = true;
+
+        while (true) {
+            visible = !visible;
+            boolean finalVisible = visible;
+            Platform.runLater(() -> {
+                hbox.setVisible(finalVisible);
+            });
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+}
     
     
     private void CargaInicial(ArrayList<MedioDeTransporte> t){
@@ -83,8 +117,8 @@ public class EditorController implements Initializable {
                 });
                
                 
-                imv.setFitWidth(300);
-                imv.setFitHeight(300);
+                imv.setFitWidth(200);
+                imv.setFitHeight(200);
 
                     // labels para el nombre y el costo
                 Label nameLabel = new Label("Nombre: " + m.getNombre());

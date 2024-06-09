@@ -11,6 +11,7 @@ ec\edu\espol\proyecto1p\Lector.class
 module-info.class
 ec\edu\espol\proyecto1p\ArrayList.class
 ec\edu\espol\proyecto1p\CambiosController.class
+ec\edu\espol\proyecto1p\EditorController$HiloFlashHBox.class
 ec\edu\espol\proyecto1p\ArrayList$1.class
 ec\edu\espol\proyecto1p\DatosController.class
 ec\edu\espol\proyecto1p\Nodo.class
