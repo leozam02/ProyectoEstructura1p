@@ -12,12 +12,12 @@ import java.util.List;
  */
 public interface DoublyLinkedList<E> extends List<E>{
     
-    public void moveToPrev();
+    public boolean moveToPrev();
     
-    public void moveToNext();
+    public boolean moveToNext();
     
     public Nodo<E> getHead();
 
-    public Nodo<E> getTail();
+//    public Nodo<E> getTail();
     
 }

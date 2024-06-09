@@ -125,26 +125,28 @@ public class DatosController implements Initializable {
     
     @FXML
     private void anteriorVehiculo(ActionEvent event) {
-        MenuController.Lista.moveToPrev();
-        this.selected = MenuController.Lista.getHead().data;
-        if (this.selected!=null) {
-            try {
-                mostrarImagen();
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
+        if (MenuController.Lista.moveToPrev()){
+            this.selected = MenuController.Lista.getHead().data;
+            if (this.selected!=null) {
+                try {
+                    mostrarImagen();
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
     }
     
     @FXML
     private void siguienteVehiculo(ActionEvent event) {
-        MenuController.Lista.moveToNext();
-        this.selected = MenuController.Lista.getHead().data;
-        if (this.selected!=null) {
-            try {
-                mostrarImagen();
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
+        if(MenuController.Lista.moveToNext()){
+            this.selected = MenuController.Lista.getHead().data;
+            if (this.selected!=null) {
+                try {
+                    mostrarImagen();
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
     }

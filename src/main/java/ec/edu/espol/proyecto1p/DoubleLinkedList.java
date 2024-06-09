@@ -16,44 +16,55 @@ import java.util.NoSuchElementException;
  */
 public class DoubleLinkedList<E> implements List<E>, DoublyLinkedList<E> {
     private Nodo<E> head;
-    private Nodo<E> tail;
+    // private Nodo<E> tail;
 
     public DoubleLinkedList() {
         this.head = head;
-        this.tail = tail;
+        // this.tail = tail;
     }
     
     
     
     
     @Override
-    public void moveToPrev() {
-        if (head != null&& head.next!=null) {
+    public boolean moveToPrev() {
+        if (head != null&& head.prev!=null) {
             head = head.prev;
+            return true;
         }
+        return false;
     }
     
     
     @Override
-    public void moveToNext() {
+    public boolean moveToNext() {
         if (head != null && head.next!=null) {
             head = head.next;
+            return true;
         }
+        return false;
     }
     @Override
     public boolean add(E data) {
         Nodo<E> newNode = new Nodo<>(data);
         if (head == null) {
             head = newNode;
-            tail = newNode;
+            // tail = newNode;
         } else {
-            tail.next = newNode;
-            newNode.prev = tail;
-            tail = newNode;
+        //            tail.next = newNode;
+        //            newNode.prev = tail;
+        //            tail = newNode;
             
-            // head.next = newNode;
-            // newNode.prev = head;
-            // head = newNode;
+//            head.next = newNode;
+//            newNode.prev = head;
+//            head = newNode;
+
+        Nodo<E> current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = newNode;
+        newNode.prev = current;
         }
         return true;
     }
@@ -62,10 +73,10 @@ public class DoubleLinkedList<E> implements List<E>, DoublyLinkedList<E> {
         return head;
     }
 
-    public Nodo<E> getTail() {
-        return tail;
-    }
-    
+//    public Nodo<E> getTail() {
+//        return tail;
+//    }
+//    
     
 
     public void traverseForwards() {
@@ -77,32 +88,32 @@ public class DoubleLinkedList<E> implements List<E>, DoublyLinkedList<E> {
         System.out.println();
     }
 
-    public void traverseBackwards() {
-        Nodo<E> current = tail;
-        while (current != null) {
-            System.out.print(current.data + " ");
-            current = current.prev;
-        }
-        System.out.println();
-    }
+//    public void traverseBackwards() {
+//        Nodo<E> current = tail;
+//        while (current != null) {
+//            System.out.print(current.data + " ");
+//            current = current.prev;
+//        }
+//        System.out.println();
+//    }
 
-    public void traverseSimultaneously() {
-        Nodo<E> forward = head;
-        Nodo<E> backward = tail;
-
-        while (forward != null || backward != null) {
-            if (forward != null) {
-                System.out.print(forward.data + " ");
-                forward = forward.next;
-            }
-
-            if (backward != null) {
-                System.out.print(backward.data + " ");
-                backward = backward.prev;
-            }
-        }
-        System.out.println();
-    }
+//    public void traverseSimultaneously() {
+//        Nodo<E> forward = head;
+//        Nodo<E> backward = tail;
+//
+//        while (forward != null || backward != null) {
+//            if (forward != null) {
+//                System.out.print(forward.data + " ");
+//                forward = forward.next;
+//            }
+//
+//            if (backward != null) {
+//                System.out.print(backward.data + " ");
+//                backward = backward.prev;
+//            }
+//        }
+//        System.out.println();
+//    }
 
     @Override
     public int size() {
