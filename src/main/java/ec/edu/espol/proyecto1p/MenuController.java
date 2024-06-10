@@ -126,8 +126,10 @@ public class MenuController implements Initializable {
                 imv.setFitHeight(300);
 
                     // labels para el nombre y el costo
-                Label nameLabel = new Label("Nombre: " + m.getNombre());
-                Label costLabel = new Label("Costo: " + m.getPrecio());
+                Label nameLabel = new Label( m.getNombre());
+                nameLabel.setStyle("-fx-font-size: 12px; -fx-font-weight: bold;");
+                Label costLabel = new Label("Costo: $" + m.getPrecio());
+
 
                  
                 VBox vbox = new VBox();
