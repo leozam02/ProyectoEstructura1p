@@ -172,9 +172,6 @@
    <left>
       <HBox prefHeight="495.0" prefWidth="135.0" BorderPane.alignment="CENTER" />
    </left>
-   <right>
-      <HBox prefHeight="495.0" prefWidth="154.0" BorderPane.alignment="CENTER" />
-   </right>
    <bottom>
       <HBox prefHeight="59.0" prefWidth="1050.0" BorderPane.alignment="CENTER" />
    </bottom>
