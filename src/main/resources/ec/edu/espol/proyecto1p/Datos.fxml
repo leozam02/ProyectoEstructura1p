@@ -2,7 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -16,15 +16,35 @@
                <children>
                   <Button fx:id="botonregreso" mnemonicParsing="false" onAction="#regresar" style="-fx-background-color: white;" text="Regresar" underline="true">
                      <font>
-                        <Font name="System Italic" size="13.0" />
+                        <Font name="System Italic" size="18.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="77.0" prefWidth="485.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="77.0" prefWidth="254.0">
                <HBox.margin>
                   <Insets right="15.0" />
                </HBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="104.0" prefWidth="245.0">
+               <children>
+                  <Button fx:id="anteriorVehiculo" mnemonicParsing="false" onAction="#anteriorVehiculo" style="-fx-background-color: white;" text="Anterior" underline="true">
+                     <HBox.margin>
+                        <Insets right="30.0" top="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="siguienteVehiculo" mnemonicParsing="false" onAction="#siguienteVehiculo" style="-fx-background-color: white;" text="Siguiente" underline="true">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
             </HBox>
          </children>
       </HBox>
@@ -32,16 +52,6 @@
    <right>
       <VBox alignment="CENTER" prefHeight="205.0" prefWidth="224.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <Button fx:id="anteriorVehiculo" mnemonicParsing="false" onAction="#anteriorVehiculo" style="-fx-background-color: white;" text="Anterior" underline="true">
-                     <HBox.margin>
-                        <Insets right="30.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="siguienteVehiculo" mnemonicParsing="false" onAction="#siguienteVehiculo" style="-fx-background-color: white;" text="Siguiente" underline="true" />
-               </children>
-            </HBox>
             <Button fx:id="botonFav" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#favorito" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #26268E;" text="Añadir a favoritos" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
@@ -68,7 +78,7 @@
       <VBox fx:id="vpaneNombre" alignment="CENTER" prefHeight="205.0" prefWidth="233.0" BorderPane.alignment="CENTER" />
    </left>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="117.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="117.0" prefWidth="355.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="izquierda" mnemonicParsing="false" onAction="#clickIzquierda" prefHeight="34.0" prefWidth="37.0" style="-fx-background-color: white; -fx-border-color: grey;" text="&lt;">
                <font>
@@ -100,11 +110,8 @@
                   <Insets left="30.0" />
                </VBox.margin>
             </HBox>
-            <Label fx:id="descLabel" alignment="CENTER" style="-fx-alignment: center;" text="Label" textAlignment="CENTER">
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
-            </Label>
+            <VBox prefHeight="46.0" prefWidth="83.0" />
+            <TextArea fx:id="textito" prefHeight="87.0" prefWidth="83.0" />
          </children>
       </VBox>
    </center>

@@ -268,7 +268,7 @@ public class MenuController implements Initializable {
     {
          try {
             FXMLLoader fxml = App.loadFXML("Datos");
-            Scene sc = new Scene(fxml.load(),830,600);
+            Scene sc = new Scene(fxml.load(),1000,600);
             DatosController hc = fxml.getController();
             hc.setSelected(selected);
             Stage st = new Stage();

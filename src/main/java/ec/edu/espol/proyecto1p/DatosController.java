@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -63,6 +64,8 @@ public class DatosController implements Initializable {
     
     @FXML
     private Label descLabel;
+    @FXML
+    private TextArea textito;
     
     
     /**
@@ -107,7 +110,7 @@ public class DatosController implements Initializable {
             Image image = new Image(new FileInputStream("img/"+foto));
             ImageView imv = new ImageView(image);
           
-            imv.setFitWidth(300);
+            imv.setFitWidth(400);
             imv.setFitHeight(300);
             hbox.getChildren().add(imv);
         }
@@ -232,8 +235,17 @@ public class DatosController implements Initializable {
     }
       private void mostrarDescripcion() {
     if (selected != null) {
-        descLabel.setText("Descripción:" + selected.getDescripcion());
-        descLabel.setStyle("-fx-font-size: 12px; -fx-font-style: italic; -fx-underline: true;");
+
+        
+        textito.setText(selected.getDescripcion());
+        textito.setWrapText(true);  // Habilita el ajuste de línea
+        textito.setPrefRowCount(10); // Establece el número de filas preferido
+        textito.setPrefColumnCount(30); // Establece el número de columnas preferido
+        
+        textito.setStyle("-fx-text-alignment: center; -fx-alignment: center;");
+        
+        // Desactiva el scroll horizontal
+        textito.setScrollLeft(0);
     }
       }
       
