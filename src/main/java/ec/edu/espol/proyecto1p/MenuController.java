@@ -133,6 +133,8 @@ public class MenuController implements Initializable {
                 Label nameLabel = new Label( m.getNombre());
                 nameLabel.setStyle("-fx-font-size: 12px; -fx-font-weight: bold;");
                 Label costLabel = new Label("Costo: $" + m.getPrecio());
+                
+                Label km=new Label("Kilometraje: "+m.getKilometraje());
 
 
                  
@@ -142,6 +144,7 @@ public class MenuController implements Initializable {
                 vbox.getChildren().add(imv);
                 vbox.getChildren().add(nameLabel);
                 vbox.getChildren().add(costLabel);
+                vbox.getChildren().add(km);
                 vbox.setAlignment(Pos.CENTER);
                 vbox.setFillWidth(true);
 
