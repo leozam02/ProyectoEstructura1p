@@ -74,12 +74,16 @@ public class MenuController implements Initializable {
     private ComboBox<String> CombosTipos;
     @FXML
     private Button BotonDefaulr;
+    @FXML
+    private Label bienvenida;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        bienvenida.setText("WELCOME: "+UsuarioController.welcome+" !");
         
         comboOrden.getItems().addAll("Ordenar por"+"\n"+" nombre de marca", "Ordenar por precio "+"\n"+"de mayor a menor");
         vpane.setAlignment(Pos.CENTER);

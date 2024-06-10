@@ -120,6 +120,18 @@
    <top>
       <VBox prefHeight="129.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="523.0">
+               <children>
+                  <Label fx:id="bienvenida" prefHeight="17.0" prefWidth="312.0">
+                     <font>
+                        <Font name="Britannic Bold" size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
             <HBox alignment="CENTER" prefHeight="59.0" prefWidth="460.0">
                <children>
                   <ImageView fitHeight="27.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">

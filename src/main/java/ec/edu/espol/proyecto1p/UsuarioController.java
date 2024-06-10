@@ -29,7 +29,7 @@ import javafx.stage.Stage;
  */
 public class UsuarioController implements Initializable {
     
-
+    public static String welcome;
     @FXML
     private HBox hbox;
     @FXML
@@ -64,6 +64,7 @@ public class UsuarioController implements Initializable {
             
             DoubleLinkedList<MedioDeTransporte> f = new DoubleLinkedList<>();
             String username = nameUsuario.getText();
+            welcome=username;
             String password = (contrasenaUsuario.getText());
             Usuario u = new Usuario(username, password, new ArrayList<>(),f);
             //UserManager.escribirUsuarioCSV(u, "Usuarios.csv");
