@@ -264,7 +264,7 @@ public class MenuController implements Initializable {
     {
          try {
             FXMLLoader fxml = App.loadFXML("Datos");
-            Scene sc = new Scene(fxml.load(),600,600);
+            Scene sc = new Scene(fxml.load(),830,600);
             DatosController hc = fxml.getController();
             hc.setSelected(selected);
             Stage st = new Stage();
@@ -368,7 +368,7 @@ public class MenuController implements Initializable {
     private void crear(ActionEvent event) {
              try {
             FXMLLoader fxml = App.loadFXML("Creacion");
-            Scene sc = new Scene(fxml.load(),750,600);
+            Scene sc = new Scene(fxml.load(),850,600);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();
