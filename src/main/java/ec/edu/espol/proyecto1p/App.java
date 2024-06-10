@@ -30,16 +30,7 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader;
     }
-    
-    
-           public static ArrayList<String>  cargarImagenes(String ruta) {
-        ArrayList<String> nombresImagenes = ImageFunction.cargarImagenes(ruta);
-        // Haz lo que necesites con la lista de nombres de imágenes
-        for (String nombre : nombresImagenes) {
-            System.out.println(nombre);
-        }
-        return  nombresImagenes;
-    }
+
 
     public static void main(String[] args) {
         launch();

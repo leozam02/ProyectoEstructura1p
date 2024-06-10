@@ -151,7 +151,7 @@ public class CreacionController implements Initializable {
                             }
 
                             // Generar el nuevo nombre del archivo
-                            String newFileName = textoId.getText() + "-" + System.currentTimeMillis() + ".jpg";
+                            String newFileName = TextoNombre.getText() + "-" + System.currentTimeMillis() + ".jpg";
 
                             // Crear un nuevo archivo en la carpeta "img" con el nuevo nombre
                             File imgFile = new File(imgFolderPath, newFileName);
