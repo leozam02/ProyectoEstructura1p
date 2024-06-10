@@ -162,6 +162,7 @@ private boolean camposLlenos() {
 
                 // Añado el VBox al HBox inicial
                 vpane.getChildren().add(vbox);
+                t1.getFotos().moveToNext();
         
     }
         

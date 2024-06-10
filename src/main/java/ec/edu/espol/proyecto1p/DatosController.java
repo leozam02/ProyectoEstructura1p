@@ -45,6 +45,7 @@ public class DatosController implements Initializable {
     private Button siguienteVehiculo;
     @FXML
     private Button anteriorVehiculo;
+    
 
     private int fotoActualIndex = 0; 
     
@@ -60,6 +61,10 @@ public class DatosController implements Initializable {
     @FXML
     private Button botonDesfav;
     
+    @FXML
+    private Label descLabel;
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -72,6 +77,8 @@ public class DatosController implements Initializable {
         this.selected = selected;
         try {
             mostrarImagen();
+            mostrarInformacion();
+            mostrarDescripcion();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }
@@ -133,6 +140,8 @@ public class DatosController implements Initializable {
             if (this.selected!=null) {
                 try {
                     mostrarImagen();
+                    mostrarInformacion();
+                    mostrarDescripcion();
                 } catch (FileNotFoundException ex) {
                     ex.printStackTrace();
                 }
@@ -147,6 +156,8 @@ public class DatosController implements Initializable {
             if (this.selected!=null) {
                 try {
                     mostrarImagen();
+                    mostrarInformacion();
+                    mostrarDescripcion();
                 } catch (FileNotFoundException ex) {
                     ex.printStackTrace();
                 }
@@ -219,29 +230,58 @@ public class DatosController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+      private void mostrarDescripcion() {
+    if (selected != null) {
+        descLabel.setText("Descripción:" + selected.getDescripcion());
+        descLabel.setStyle("-fx-font-size: 12px; -fx-font-style: italic; -fx-underline: true;");
+    }
+      }
       
-      private void cargarInfo() {
+      
+        private void mostrarInformacion() {
+        if (selected != null) {
         vpaneNombre.getChildren().clear();
-        Label nameLabel = new Label("Nombre: " + selected.getNombre());
-        Label costLabel = new Label("Costo: " + selected.getPrecio());
+        Label nameLabel = new Label( selected.getNombre());
+        nameLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+        Label costLabel = new Label("$"+selected.getPrecio());
+        costLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
         Label modeloLabel = new Label("Modelo: " + selected.getModelo());
+        modeloLabel.setStyle("-fx-font-size: 16px; -fx-font-style: italic;");
+        Label marcaLabel = new Label("Marca: " + selected.getMarca());
+        marcaLabel.setStyle("-fx-font-size: 16px; -fx-font-style: italic;");
+        Label fechaLabel = new Label("Fecha: " + selected.getFecha());
+        fechaLabel.setStyle("-fx-font-size: 16px; -fx-font-style: italic;");
         Label kmLabel = new Label("Kilometraje: " + selected.getKilometraje());
-        Label descLabel = new Label("Descripción: " + selected.getDescripcion());
+        kmLabel.setStyle("-fx-font-size: 16px; -fx-font-style: italic;");
+        Label motorLabel = new Label("Motor: " + selected.getMotor());
+        motorLabel.setStyle("-fx-font-size: 16px; -fx-font-style: italic;");
+        Label trLabel = new Label("Transmisión: " + selected.getTransmision());
+        trLabel.setStyle("-fx-font-size: 16px; -fx-font-style: italic;");
+        Label prLabel = new Label("Ubicación: " + selected.getProvincia());
+        prLabel.setStyle("-fx-font-size: 16px; -fx-font-style: italic;");
+
+   
         VBox vbox = new VBox();
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10)); 
         vbox.getChildren().add(nameLabel);
         vbox.getChildren().add(costLabel);
         vbox.getChildren().add(modeloLabel);
+        vbox.getChildren().add(marcaLabel);
+        vbox.getChildren().add(fechaLabel);
         vbox.getChildren().add(kmLabel);
-        vbox.getChildren().add(descLabel);
+        vbox.getChildren().add(motorLabel);
+        vbox.getChildren().add(trLabel);
+        vbox.getChildren().add(prLabel);
         
         vbox.setAlignment(Pos.CENTER);
         vbox.setFillWidth(true);
         
-        vpaneNombre.getChildren().add(vbox);
+        vpaneNombre.getChildren().add(vbox);}
               
     }
+    
+    
 
     @FXML
     private void desFavorite(ActionEvent event) {
