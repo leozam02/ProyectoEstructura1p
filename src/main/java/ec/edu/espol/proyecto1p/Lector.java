@@ -43,6 +43,16 @@ public class Lector {
         
     }
      
+    public static boolean verificarImagen(ArrayList<String> lista, String marca){
+        for (String t : lista) {
+           String [] tokens=t.split("-");
+           if(marca.equals(tokens[0]))
+               return true;
+        }
+        return false;
+        
+    }
+     
      
     public static CircularDoublyLinkedList<String> filtrar(ArrayList<String> lista, String marca) {
         CircularDoublyLinkedList<String> filtrados = new CircularDoublyLinkedList<>();

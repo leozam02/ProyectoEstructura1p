@@ -198,8 +198,15 @@ public class MenuController implements Initializable {
                 resultados.add(transporte);
             }
         }
+        
+        TextoPrecioInicial.clear();
+        TextoPrecioFInal.clear();
+        TextoKmDesde.clear();
+        TextoKMhasta.clear();
 
         return resultados;
+        
+       
     }
     
     
@@ -285,6 +292,7 @@ public class MenuController implements Initializable {
            String m=ComboModelos.getValue();
         DoublyLinkedList<MedioDeTransporte> filtro=Lector.filtrarPorMarca(Lista, m);
         CargaInicial(filtro);
+        
     }
 
     @FXML
@@ -432,10 +440,17 @@ public class MenuController implements Initializable {
     @FXML
     private void Default(ActionEvent event) {
         
+                
+        ComboModelos.getSelectionModel().clearSelection();
+        CombosTipos.getSelectionModel().clearSelection();
+        CombosProvincia.getSelectionModel().clearSelection();
+        comboOrden.getSelectionModel().clearSelection();
+        
         vpane.setAlignment(Pos.CENTER);
         Scroll.setFitToWidth(true);
         Lista = Lector.leerArchivo("Datos.csv");
         CargaInicial(Lista);
+
         
         
     }

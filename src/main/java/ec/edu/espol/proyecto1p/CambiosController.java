@@ -67,7 +67,7 @@ public class CambiosController implements Initializable {
     private TextField textoNombre;
     @FXML
     private Button botonEditar;
-    ArrayList<String> nameImages=ImageFunction.cargarImagenes("img");
+    ArrayList<String> nameImages;
     MedioDeTransporte t1;
 
     
@@ -132,8 +132,7 @@ private boolean camposLlenos() {
         Image image = new Image(new FileInputStream("img/"+foto));
                 ImageView imv = new ImageView(image);
                 
-                imv.addEventHandler(MouseEvent.MOUSE_CLICKED,(MouseEvent j) -> {
-                          System.out.println("Clic detectado en la imagen: " + "img/" + foto);
+                imv.addEventHandler(MouseEvent.MOUSE_CLICKED,(MouseEvent j) -> {                
                 boolean deleted = ImageFunction.deleteImage("img/" + foto);
                 if (deleted) {
                     System.out.println("La imagen fue eliminada exitosamente.");
@@ -200,7 +199,9 @@ private boolean camposLlenos() {
         if (!validarCampos()) {
                 return;
         }
+        
 
+        
         // Se elimina el vehículo antiguo 
         Usuario usuarioActual = UserManager.getUsuario();
         for (MedioDeTransporte vehiculo : usuarioActual.getAutos()) {
@@ -294,12 +295,6 @@ private boolean camposLlenos() {
     private void subirImagen(ActionEvent event) {
         vpane.setAlignment(Pos.CENTER);
         Scroll.setFitToWidth(true);
-       //Validar que todos los campos estén llenos
-        /*if (!camposLlenos()) {
-            // Mostrar un mensaje de error
-            System.out.println("Por favor, complete todos los campos antes de subir una imagen.");
-            return;
-        }*/
             //FileChooser para agregar la imagen
         try {
             FileChooser fileChooser = new FileChooser();

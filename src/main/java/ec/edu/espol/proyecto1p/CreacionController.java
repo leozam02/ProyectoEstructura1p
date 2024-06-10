@@ -66,6 +66,8 @@ public class CreacionController implements Initializable {
     private Button botonCrear;
     @FXML
     private ScrollPane Scroll2;
+    
+    ArrayList<String> nameImages;
 
     /**
      * Initializes the controller class.
@@ -79,13 +81,22 @@ public class CreacionController implements Initializable {
     
     @FXML
     private void crearBoton(ActionEvent event) {
+       nameImages =ImageFunction.cargarImagenes("img");
         vpane.setAlignment(Pos.CENTER);
         Scroll2.setFitToWidth(true);
-                if (!validarCampos()) {
+        if (!validarCampos()) {
+            showAlert("Verificar Campos Llenos","LOS CAMPOS NO ESTAN COMPLETOS");
             return;
-        }
+        }    
         //Se crea el objeto MedioTransporte con los datos ingresados
         MedioDeTransporte nuevoMedio = crearMedioTransporte();
+        
+        //Validacion si que antes de crear se haya subido la imagen
+        if(!(Lector.verificarImagen(nameImages, nuevoMedio.getId()))){
+            showAlert("ERROR DE CREACION","VERIFICAR QUE SE HAYA SUBIDO UNA IMAGEN ANTES DE CREAR");
+            return;
+        }
+        
         System.out.println(nuevoMedio);
         UserManager.getUsuario().getAutos().add(nuevoMedio);
         Lector.escribirEnCSV(nuevoMedio);
@@ -237,8 +248,8 @@ public class CreacionController implements Initializable {
         int precio = Integer.parseInt(textoPrecio.getText());
         String provincia = textoProvinicia.getText();
         String descripcion = textoDesc.getText();
-        String nombre = TextoNombre.getText();
-        String id = textoId.getText();
+        String nombre = textoId.getText();
+        String id = TextoNombre.getText();
         return new MedioDeTransporte(fecha, marca, modelo, kilometraje, motor, transmision, precio, provincia, descripcion, nombre, id);
     }
 

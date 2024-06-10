@@ -44,32 +44,7 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
         
-        List<MedioDeTransporte> l=Lector.leerArchivo("Datos.csv");
-       /*for(MedioDeTransporte g: l){
-           System.out.print(g.toString());
-           System.out.println("\n");
-           
-       }*/
-       
-       ArrayList<String> nameImages=ImageFunction.cargarImagenes("img");
-        for(String g: nameImages){
-           System.out.print(g);
-       }
-        
-        
-        
-        String rutaImagenes = "img"; // Cambia esto a la ruta correcta de tu carpeta de imágenes
-        ArrayList<String> r=cargarImagenes(rutaImagenes);
-        
-        ArrayList<String> o=ImageFunction.filtrar(r, "10003");
-        for(String fe:o){
-            System.out.println("\n");
-            System.out.println(fe);
-        }
-            
-        
-        
-        //UserManager.mostrarUsuarios();
+
     }
         
 
