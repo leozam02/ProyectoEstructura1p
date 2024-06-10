@@ -122,13 +122,16 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="523.0">
                <children>
-                  <Label fx:id="bienvenida" prefHeight="17.0" prefWidth="312.0">
+                  <Label fx:id="bienvenida" prefHeight="17.0" prefWidth="312.0" textFill="#26268e">
                      <font>
                         <Font name="Britannic Bold" size="15.0" />
                      </font>
                      <padding>
                         <Insets top="10.0" />
                      </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
                   </Label>
                </children>
             </HBox>
