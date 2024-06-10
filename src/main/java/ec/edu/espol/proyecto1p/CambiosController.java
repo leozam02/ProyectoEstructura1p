@@ -178,7 +178,7 @@ private boolean camposLlenos() {
     }
             try {
             FXMLLoader fxml = App.loadFXML("Menu");
-            Scene sc = new Scene(fxml.load(),600,600);
+            Scene sc = new Scene(fxml.load(),1510, 900);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();
@@ -220,7 +220,7 @@ private boolean camposLlenos() {
         
         try {
             FXMLLoader fxml = App.loadFXML("Menu");
-            Scene sc = new Scene(fxml.load(),600,600);
+            Scene sc = new Scene(fxml.load(),1510, 900);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();

@@ -104,7 +104,7 @@ public class UsuarioController implements Initializable {
         try
         {
             FXMLLoader fxmlLoader = App.loadFXML("Menu");
-            Scene s = new Scene(fxmlLoader.load(), 810, 600);
+            Scene s = new Scene(fxmlLoader.load(), 1510, 900);
             //PrimaryController jc = fxmlLoader.getController();
             Stage stage = new Stage();
             stage.setTitle(titulo);

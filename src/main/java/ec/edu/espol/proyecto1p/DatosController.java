@@ -120,7 +120,7 @@ public class DatosController implements Initializable {
     private void regresar(ActionEvent event) {
              try {
             FXMLLoader fxml = App.loadFXML("Menu");
-            Scene sc = new Scene(fxml.load(),830,600);
+            Scene sc = new Scene(fxml.load(),1510, 900);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();
@@ -202,7 +202,7 @@ public class DatosController implements Initializable {
             UserManager.getUsuario().getFavoritos().add(selected);
             try {
             FXMLLoader fxml = App.loadFXML("Menu");
-            Scene sc = new Scene(fxml.load(),830,600);
+            Scene sc = new Scene(fxml.load(),1510, 900);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();
@@ -301,7 +301,7 @@ public class DatosController implements Initializable {
         UserManager.getUsuario().getFavoritos().remove(selected);
                     try {
             FXMLLoader fxml = App.loadFXML("Menu");
-            Scene sc = new Scene(fxml.load(),830,600);
+            Scene sc = new Scene(fxml.load(),1510, 900);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();
