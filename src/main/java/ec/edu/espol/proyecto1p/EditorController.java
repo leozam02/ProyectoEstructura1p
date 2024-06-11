@@ -166,7 +166,7 @@ public class EditorController implements Initializable {
         
              try {
             FXMLLoader fxml = App.loadFXML("Menu");
-            Scene sc = new Scene(fxml.load(),1510, 900);
+            Scene sc = new Scene(fxml.load(),1275, 600);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();

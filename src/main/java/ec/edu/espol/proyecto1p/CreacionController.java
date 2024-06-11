@@ -102,7 +102,7 @@ public class CreacionController implements Initializable {
         Lector.escribirEnCSV(nuevoMedio);
         try {
             FXMLLoader fxml = App.loadFXML("Menu");
-            Scene sc = new Scene(fxml.load(),1510, 900);
+            Scene sc = new Scene(fxml.load(),1275, 600);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();
@@ -188,7 +188,7 @@ public class CreacionController implements Initializable {
     private void regresar(ActionEvent event) {
             try {
             FXMLLoader fxml = App.loadFXML("Menu");
-            Scene sc = new Scene(fxml.load(),1510, 900);
+            Scene sc = new Scene(fxml.load(),1275, 600);
             Stage st = new Stage();
             st.setScene(sc);
             st.show();
